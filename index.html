@@ -6,6 +6,9 @@
 @media(max-width:850px){.wrap{padding:0 20px}td,th{padding:13px 10px}.stamp{display:none}.score{min-width:135px;width:170px}.device{max-width:175px}.field{min-width:110px}.controls{gap:10px}}
 @media(max-width:650px){.wrap{padding:0 18px}.nav{height:58px}.brand{font-size:15px}.brand span{display:none}.intro{padding:30px 0 22px}h1{letter-spacing:-1px}.intro p{font-size:12px}.summary{gap:16px;margin-bottom:20px}.toolbar{padding-top:16px}.search{width:100%;order:2}.segments{width:100%}.segments button{flex:1;padding:7px 10px}.controls{display:grid;grid-template-columns:1fr 1fr}.field select{max-width:100%;width:100%}.field.base{grid-column:1/-1}.reset{grid-column:1/-1;height:32px}.notice{font-size:10px}.table-shell{border:none;background:none;overflow:visible}table,tbody{display:block}thead{display:none}tr.data-row{display:grid;grid-template-columns:1fr 1fr 1.7fr;gap:16px 10px;border:1px solid var(--line);border-radius:12px;padding:17px;margin-bottom:10px;background:var(--surface)}tr.data-row.is-base{background:var(--accent-bg)}td{display:block;padding:0;border:0}td.identity{grid-column:1/3}td.action{grid-column:3;grid-row:1;text-align:right;align-self:center}td.cpu,td.gpu,td.mem{grid-row:2}td.cpu:before{content:'CPU';font-size:9px;color:var(--muted);display:block;margin-bottom:5px}td.gpu:before{content:'GPU';font-size:9px;color:var(--muted);display:block;margin-bottom:5px}td.mem:before{content:'メモリ';font-size:9px;color:var(--muted);display:block;margin-bottom:5px}td.score{grid-column:1/-1;width:auto;min-width:0;padding-top:12px;border-top:1px solid var(--line)}.chip-name{font-size:19px}.device{max-width:none}.badges{max-width:none}.badge{font-size:10px}.num{font-size:23px}.details{display:block;margin:-11px 0 10px;border:1px solid var(--line);border-radius:0 0 12px}.details td{padding:0 15px;border-radius:inherit}.detail-content{grid-template-columns:1fr;gap:10px}.rank-row{grid-template-columns:110px 1fr 70px;gap:10px}.rank-name{font-size:12px}.rank-sub{font-size:9px}.rank-track{height:19px}#ranking{padding:0 12px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}.rank-score b{font-size:12px}.rank-score span{font-size:10px}.guide{margin-top:24px}footer .wrap{flex-direction:column;gap:4px}.nav-right{gap:12px}}
 @media(prefers-reduced-motion:no-preference){.fill,.rank-fill{transition:width .2s ease}}@media print{header,.toolbar,.controls,.view-buttons,.action,.notice,footer{display:none}body{background:white;color:black}.wrap{max-width:none;padding:0}tr{break-inside:avoid}.intro{padding:15px 0}}
+
+.core-grid{display:grid;grid-template-columns:repeat(8,6px);gap:3px;margin-top:9px;width:max-content}.core-square{width:6px;height:6px;border-radius:1px;background:#8190a6}.core-square.s{background:#9663dc}.core-square.p{background:#3985e8}.core-square.e{background:#9cbedf}.core-legend{display:flex;flex-wrap:wrap;gap:8px 17px;font-size:10px;color:var(--muted);margin:0 0 15px;align-items:center}.core-legend span{display:inline-flex;align-items:center;gap:5px}.core-legend i{display:inline-block}.cpu,.gpu{min-width:84px}.split{white-space:normal}.data-row td{vertical-align:top}
+@media(max-width:650px){tr.data-row{grid-template-columns:1fr 1fr 1.5fr}.cpu,.gpu{min-width:0}}
 </style></head><body>
 <header><nav class="wrap nav" aria-label="メイン"><a class="brand" href="./">Silicon Index <span>/ Apple</span></a><div class="nav-right"><a href="#about">データについて</a><button class="theme" id="theme" aria-label="外観を切り替え">外観：自動</button></div></nav></header>
 <main class="wrap"><section class="intro"><div><p class="eyebrow">APPLE SILICON, AT A GLANCE</p><h1>チップの違いを、ひと目で。</h1><p>コア数、メモリ、ベンチマーク。構成を選んで、性能を比べる。</p></div><div class="stamp">DATA CHECKED<strong>2026.09.04</strong></div></section>
@@ -14,9 +17,9 @@
 <div class="controls"><div class="field"><label for="generation">世代</label><select id="generation"><option value="all">すべての世代</option></select></div><div class="field"><label for="metric">性能の指標</label><select id="metric"><option value="multi">CPU マルチコア</option><option value="single">CPU シングルコア</option><option value="metal">GPU Metal</option></select></div><div class="field"><label for="sort">並び順</label><select id="sort"><option value="new">新しい世代順</option><option value="score">スコアが高い順</option><option value="cpu">CPUコア数順</option><option value="gpu">GPUコア数順</option><option value="memory">最大メモリ順</option></select></div><div class="field base"><label for="baseline">比較基準 · この構成を1.00倍として比較</label><select id="baseline"></select></div><button class="reset" id="reset">リセット</button></div>
 <p class="notice">ベンチマークはGeekbench公式チャートの取得値です。公式ページ内に「6 / 7」の表記不一致があるため、倍率は参考比較として表示しています。<a href="#about">詳細</a></p>
 <div class="viewline"><span class="result-count" id="resultCount" role="status" aria-live="polite"></span><div class="view-buttons" role="group" aria-label="表示形式"><button id="tableView" aria-pressed="true">仕様一覧</button><button id="chartView" aria-pressed="false">性能グラフ</button></div></div>
-<div class="table-shell"><table id="table"><caption class="sr-only">Apple Siliconの構成とベンチマーク一覧</caption><thead><tr><th scope="col">チップ / 搭載製品</th><th scope="col">CPUコア</th><th scope="col">GPUコア</th><th scope="col">メモリ構成</th><th scope="col" id="scoreHead">CPU マルチコア</th><th scope="col"><span class="sr-only">詳細</span></th></tr></thead><tbody id="rows"></tbody></table><div id="ranking" hidden aria-label="ベンチマーク比較グラフ"></div><div class="empty" id="empty" hidden>条件に合う構成がありません。<br>検索語や世代を変えてみてください。</div></div>
+<div class="core-legend"><span>1つの四角＝1コア</span><span><i class="core-square s" aria-hidden="true"></i>S スーパー</span><span><i class="core-square p" aria-hidden="true"></i>P 高性能</span><span><i class="core-square e" aria-hidden="true"></i>E 高効率</span><span><i class="core-square" aria-hidden="true"></i>GPU</span></div><div class="table-shell"><table id="table"><caption class="sr-only">Apple Siliconの構成とベンチマーク一覧</caption><thead><tr><th scope="col">チップ / 搭載製品</th><th scope="col">CPUコア</th><th scope="col">GPUコア</th><th scope="col">メモリ構成</th><th scope="col" id="scoreHead">CPU マルチコア</th><th scope="col"><span class="sr-only">詳細</span></th></tr></thead><tbody id="rows"></tbody></table><div id="ranking" hidden aria-label="ベンチマーク比較グラフ"></div><div class="empty" id="empty" hidden>条件に合う構成がありません。<br>検索語や世代を変えてみてください。</div></div>
 <p class="legend" id="legend"></p>
-<details class="guide" id="about"><summary>データの出典・比較の読み方</summary><div class="guide-content"><h3>対象とメモリ</h3><p>M1からM6までのMシリーズ、およびA18 Pro・A19・A19 Proの確認済み構成を掲載。M4 Ultraなど未確認のチップは掲載していません。2026年9月4日時点で発表済みの構成を含みます。搭載製品欄は代表例で、対応製品をすべて列挙したものではありません。</p><p>メモリはストレージ容量ではなくRAMです。同じチップ・CPU・GPU構成でも搭載製品によって選択肢が異なります。「詳細」に製品別の制約を記載しています。iPhoneにはRAMの増量オプションがなく、Appleの製品仕様に容量が記載されていないため「容量非公表」としています。</p><h3>CPUの内訳</h3><p>S＝スーパーコア、P＝高性能コア、E＝高効率コア。名称はAppleの現行表記に準拠。異なる世代の同じコア数が、同じ性能を示すわけではありません。Neural Engineとメモリ帯域幅は各構成の「詳細」に表示します。</p><h3>ベンチマーク</h3><p><a href="https://browser.geekbench.com/mac-benchmarks" target="_blank" rel="noopener noreferrer">Geekbench Mac Benchmarks</a>と<a href="https://browser.geekbench.com/ios-benchmarks" target="_blank" rel="noopener noreferrer">iOS Benchmarks</a>を2026年9月4日に確認した静的データです。自動更新ではありません。各行は詳細に示す代表機種の集計値で、すべての搭載機種を平均したチップ固有の値ではありません。</p><p>公式チャートの説明はGeekbench 7ですが、<a href="https://browser.geekbench.com/macs/macbook-pro-14-inch-2025" target="_blank" rel="noopener noreferrer">M5 MacBook Proの詳細ページ</a>の説明は同じ値をGeekbench 6と記載しています。本サイトはバージョンを断定せず、同時点の公式チャート内での参考比較に限定します。厳密な同一バージョン・同一条件での比較は未検証です。</p><p>倍率＝対象スコア ÷ 比較基準のスコア。1.50倍はスコアが50%高いことを示し、実際の作業が必ず1.50倍速くなるという意味ではありません。OS、冷却、電力設定、メモリ、ソフトによって結果は変わります。CPU・GPUの異なる指標同士は比較しません。GPUはMetalのみで、OpenCL値とは混在させません。</p><p>構成と結果を対応付けられない場合は未掲載とし、他構成の値や推定値で埋めていません。GPU別の区別がない旧世代の集計では、CPU参考値のみ表示する場合があります。</p><h3>公式仕様</h3><p>各行の「詳細 → Apple公式仕様」から元の技術仕様を確認できます。チップの仕様や販売構成が更新された場合、掲載データと異なる可能性があります。</p></div></details>
+<details class="guide" id="about"><summary>データの出典・比較の読み方</summary><div class="guide-content"><h3>対象とメモリ</h3><p>Mac向けのM1からM6までのMシリーズ、およびA18 Pro・A19・A19 Proの確認済み構成を掲載。M4 Ultraなど未確認のチップは掲載していません。2026年9月4日時点で発表済みの構成を含みます。iPad専用のMチップ構成は対象外です。搭載製品欄は代表例で、対応製品をすべて列挙したものではありません。</p><p>メモリはストレージ容量ではなくRAMです。同じチップ・CPU・GPU構成でも搭載製品によって選択肢が異なります。「詳細」に製品別の制約を記載しています。iPhoneにはRAMの増量オプションがなく、Appleの製品仕様に容量が記載されていないため「容量非公表」としています。</p><h3>CPUの内訳</h3><p>S＝スーパーコア、P＝高性能コア、E＝高効率コア。名称はAppleの現行表記に準拠。異なる世代の同じコア数が、同じ性能を示すわけではありません。Neural Engineとメモリ帯域幅は各構成の「詳細」に表示します。</p><h3>ベンチマーク</h3><p><a href="https://browser.geekbench.com/mac-benchmarks" target="_blank" rel="noopener noreferrer">Geekbench Mac Benchmarks</a>と<a href="https://browser.geekbench.com/ios-benchmarks" target="_blank" rel="noopener noreferrer">iOS Benchmarks</a>を2026年9月4日に確認した静的データです。自動更新ではありません。各行は詳細に示す代表機種の集計値で、すべての搭載機種を平均したチップ固有の値ではありません。</p><p>公式チャートの説明はGeekbench 7ですが、<a href="https://browser.geekbench.com/macs/macbook-pro-14-inch-2025" target="_blank" rel="noopener noreferrer">M5 MacBook Proの詳細ページ</a>の説明は同じ値をGeekbench 6と記載しています。本サイトはバージョンを断定せず、同時点の公式チャート内での参考比較に限定します。厳密な同一バージョン・同一条件での比較は未検証です。</p><p>倍率＝対象スコア ÷ 比較基準のスコア。1.50倍はスコアが50%高いことを示し、実際の作業が必ず1.50倍速くなるという意味ではありません。OS、冷却、電力設定、メモリ、ソフトによって結果は変わります。CPU・GPUの異なる指標同士は比較しません。GPUはMetalのみで、OpenCL値とは混在させません。</p><p>構成と結果を対応付けられない場合は未掲載とし、他構成の値や推定値で埋めていません。GPU別の区別がない旧世代の集計では、CPU参考値のみ表示する場合があります。</p><h3>公式仕様</h3><p>各行の「詳細 → Apple公式仕様」から元の技術仕様を確認できます。チップの仕様や販売構成が更新された場合、掲載データと異なる可能性があります。</p></div></details>
 <noscript><p>この一覧の表示・比較にはJavaScriptを有効にしてください。</p></noscript></main><footer><div class="wrap"><span>Silicon Index · Independent Apple Silicon reference</span><span>Apple非公式 / データ確認：2026年9月4日</span></div></footer>
 <script id="chip-data" type="application/json">[
   {
@@ -65,7 +68,7 @@
     "device": "MacBook Air / Pro・iMac・Mac mini",
     "bw": null,
     "ne": 16,
-    "note": "Macの選択肢。iPad Airは8GB固定、iPad Proはストレージに応じ8GB / 16GB。",
+    "note": "",
     "platform": "mac",
     "status": "発売済み",
     "bench": {
@@ -311,34 +314,6 @@
     "benchSource": "https://browser.geekbench.com/mac-benchmarks"
   },
   {
-    "id": "chip-10",
-    "chip": "M2",
-    "generation": "M2",
-    "cpu": 8,
-    "gpu": 9,
-    "p": 4,
-    "e": 4,
-    "s": 0,
-    "memory": [
-      8
-    ],
-    "source": "https://support.apple.com/en-hk/119893",
-    "device": "iPad Air",
-    "bw": null,
-    "ne": 16,
-    "note": "",
-    "platform": "ios",
-    "status": "発売済み",
-    "bench": {
-      "single": 2361,
-      "multi": 9901,
-      "metal": 39107
-    },
-    "benchDevice": "iPad Air 13-inch (M2)",
-    "benchNote": "",
-    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
-  },
-  {
     "id": "chip-11",
     "chip": "M2",
     "generation": "M2",
@@ -356,7 +331,7 @@
     "device": "MacBook Air / Pro・Mac mini",
     "bw": 100,
     "ne": 16,
-    "note": "Macの選択肢。iPad Proは128〜512GBストレージで8GB RAM、1〜2TBで16GB RAM。",
+    "note": "",
     "platform": "mac",
     "status": "発売済み",
     "bench": {
@@ -606,34 +581,6 @@
     "benchSource": "https://browser.geekbench.com/mac-benchmarks"
   },
   {
-    "id": "chip-20",
-    "chip": "M3",
-    "generation": "M3",
-    "cpu": 8,
-    "gpu": 9,
-    "p": 4,
-    "e": 4,
-    "s": 0,
-    "memory": [
-      8
-    ],
-    "source": "https://support.apple.com/en-hk/122242",
-    "device": "iPad Air",
-    "bw": null,
-    "ne": 16,
-    "note": "",
-    "platform": "ios",
-    "status": "発売済み",
-    "bench": {
-      "single": 2744,
-      "multi": 11976,
-      "metal": 44322
-    },
-    "benchDevice": "iPad Air 13-inch (7th generation)",
-    "benchNote": "",
-    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
-  },
-  {
     "id": "chip-21",
     "chip": "M3 Pro",
     "generation": "M3",
@@ -844,62 +791,6 @@
     "benchSource": "https://browser.geekbench.com/mac-benchmarks"
   },
   {
-    "id": "chip-28",
-    "chip": "M4",
-    "generation": "M4",
-    "cpu": 8,
-    "gpu": 9,
-    "p": 3,
-    "e": 5,
-    "s": 0,
-    "memory": [
-      12
-    ],
-    "source": "https://support.apple.com/en-hk/126471",
-    "device": "iPad Air",
-    "bw": 120,
-    "ne": 16,
-    "note": "",
-    "platform": "ios",
-    "status": "発売済み",
-    "bench": {
-      "single": null,
-      "multi": null,
-      "metal": null
-    },
-    "benchDevice": "",
-    "benchNote": "",
-    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
-  },
-  {
-    "id": "chip-29",
-    "chip": "M4",
-    "generation": "M4",
-    "cpu": 9,
-    "gpu": 10,
-    "p": 3,
-    "e": 6,
-    "s": 0,
-    "memory": [
-      8
-    ],
-    "source": "https://www.apple.com/hk/en/ipad/compare/",
-    "device": "iPad Pro · 256 / 512GB",
-    "bw": 120,
-    "ne": 16,
-    "note": "チャートのCPU構成を特定できないためスコア未掲載。",
-    "platform": "ios",
-    "status": "発売済み",
-    "bench": {
-      "single": null,
-      "multi": null,
-      "metal": null
-    },
-    "benchDevice": "",
-    "benchNote": "",
-    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
-  },
-  {
     "id": "chip-30",
     "chip": "M4",
     "generation": "M4",
@@ -947,7 +838,7 @@
     "device": "MacBook Pro / Air・Mac mini・iMac",
     "bw": 120,
     "ne": 16,
-    "note": "Macの選択肢。iPad Proの10コアCPUモデルは1TB / 2TBストレージ・16GB RAM。",
+    "note": "",
     "platform": "mac",
     "status": "発売済み",
     "bench": {
@@ -1078,34 +969,6 @@
     "benchSource": "https://browser.geekbench.com/mac-benchmarks"
   },
   {
-    "id": "chip-36",
-    "chip": "M5",
-    "generation": "M5",
-    "cpu": 9,
-    "gpu": 10,
-    "p": 0,
-    "e": 6,
-    "s": 3,
-    "memory": [
-      12
-    ],
-    "source": "https://support.apple.com/en-us/125406",
-    "device": "iPad Pro · 256 / 512GB",
-    "bw": 153,
-    "ne": 16,
-    "note": "チャートのCPU構成を特定できないためスコア未掲載。",
-    "platform": "ios",
-    "status": "発売済み",
-    "bench": {
-      "single": null,
-      "multi": null,
-      "metal": null
-    },
-    "benchDevice": "",
-    "benchNote": "",
-    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
-  },
-  {
     "id": "chip-37",
     "chip": "M5",
     "generation": "M5",
@@ -1153,7 +1016,7 @@
     "device": "MacBook Pro / Air",
     "bw": 153,
     "ne": 16,
-    "note": "Macの選択肢。iPad Proの10コアCPUモデルは1TB / 2TBストレージ・16GB RAM。Vision Proは16GB。",
+    "note": "Vision Proは16GB。",
     "platform": "mac",
     "status": "発売済み",
     "bench": {
@@ -1551,10 +1414,11 @@ const baseOptions=DATA.slice().sort((a,b)=>rank(b)-rank(a)||b.gpu-a.gpu);
 function updateBaseline(){const old=$('baseline').value;const available=baseOptions.filter(r=>r.bench[$('metric').value]>0);$('baseline').innerHTML=available.map(r=>`<option value="${r.id}">${esc(name(r))}</option>`).join('');$('baseline').value=available.some(r=>r.id===old)?old:(available.find(r=>r.chip==='M1'&&r.gpu===8)?.id||available[0]?.id||'');}
 function filtered(){const q=$('search').value.trim().toLowerCase();return DATA.filter(r=>(family==='all'||r.chip.startsWith(family))&&($('generation').value==='all'||r.generation===$('generation').value)&&(!q||[r.chip,r.device,`${r.cpu} ${r.gpu}`].join(' ').toLowerCase().includes(q))).sort((a,b)=>{let d=0;const k=$('sort').value;if(k==='score')d=(b.bench[$('metric').value]??-1)-(a.bench[$('metric').value]??-1);if(k==='cpu')d=b.cpu-a.cpu;if(k==='gpu')d=b.gpu-a.gpu;if(k==='memory')d=Math.max(0,...b.memory)-Math.max(0,...a.memory);return d||rank(b)-rank(a)||b.cpu-a.cpu||b.gpu-a.gpu;});}
 function ratio(v,base){return v>0&&base>0?(v/base).toFixed(2)+'×':'—';}
+function coreGrid(r,type){const groups=type==='cpu'?[[r.s,'s'],[r.p,'p'],[r.e,'e']]:[[r.gpu,'g']];return '<div class="core-grid" aria-hidden="true">'+groups.map(([count,kind])=>('<span class="core-square '+kind+'"></span>').repeat(count)).join('')+'</div>';}
 function detail(r){return `<div class="detail-content"><div><div class="detail-metrics"><div>シングルコア<span>${fmt(r.bench.single)}</span></div><div>マルチコア<span>${fmt(r.bench.multi)}</span></div><div>Metal<span>${fmt(r.bench.metal)}</span></div></div><p>ベンチマーク代表機種：<b>${esc(r.benchDevice||'対応する集計値を確認できていません')}</b></p>${r.benchNote?`<p>${esc(r.benchNote)}</p>`:''}<p>チャート取得日：2026年9月4日 / 版表記不一致のため参考値</p><a href="${esc(r.benchSource)}" target="_blank" rel="noopener noreferrer">Geekbench出典 ↗</a>${r.bench[$('metric').value]>0?`<button class="set-base" data-base="${r.id}">この構成を比較基準にする</button>`:''}</div><div><p>Neural Engine：<b>${r.ne}コア</b>　メモリ帯域幅：<b>${r.bw==null?'未記載・条件別':nf.format(r.bw)+' GB/s'}</b></p><p>${esc(r.note||'表示したメモリ容量は、このCPU / GPU構成で選べる構成です。製品・販売時期による差は公式仕様をご確認ください。')}</p><p>状態：${esc(r.status)}</p><a href="${esc(r.source)}" target="_blank" rel="noopener noreferrer">Apple公式仕様 ↗</a>${r.extraSource?`<a href="${esc(r.extraSource)}" target="_blank" rel="noopener noreferrer">補足の公式出典 ↗</a>`:''}</div></div>`;}
 function render(){const rows=filtered(),metric=$('metric').value,base=DATA.find(r=>r.id===$('baseline').value),baseScore=base?.bench[metric];const max=Math.max(1,...rows.map(r=>r.bench[metric]||0));$('resultCount').textContent=`${rows.length}構成を表示 · ${rows.filter(r=>r.bench[metric]>0).length}構成にスコアあり`;$('scoreHead').textContent=labels[metric];$('legend').textContent=`${labels[metric]} / 棒の長さは表示中の最高値を100%として表示。倍率は ${base?name(base):'未選択'} を基準に算出。`;$('empty').hidden=rows.length>0;$('table').hidden=view!=='table'||!rows.length;$('ranking').hidden=view!=='chart'||!rows.length;
-$('rows').innerHTML=rows.map(r=>{const score=r.bench[metric],isBase=r.id===base?.id,open=expanded.has(r.id);return `<tr class="data-row ${isBase?'is-base':''}"><td class="identity"><div class="chip-name">${esc(r.chip)}${isBase?'<span class="base-tag">基準</span>':''}${r.status==='発表済み'?'<span class="future">発表済み</span>':''}</div><div class="device">${esc(r.device)}</div></td><td class="cpu"><div class="num">${r.cpu}</div><div class="split">${[r.s?`S${r.s}`:'',r.p?`P${r.p}`:'',r.e?`E${r.e}`:''].filter(Boolean).join(' + ')}</div></td><td class="gpu"><div class="num">${r.gpu}</div></td><td class="mem"><div class="badges">${r.memory.length?r.memory.map(m=>`<span class="badge">${m}${r.historicalMemory?.includes(m)?"*":""}</span>`).join(''):'<span class="variant">容量非公表</span>'}</div><div class="unit">${r.memory.length?'GB'+(r.historicalMemory?.length?" · *発売当初":'')+(r.note?' · 条件は詳細へ':''):'増量オプションなし'}</div></td><td class="score"><div class="score-top"><span class="score-value">${fmt(score)}</span><span class="ratio">${ratio(score,baseScore)}</span></div>${score?`<div class="track" aria-hidden="true"><div class="fill" style="width:${score/max*100}%"></div></div>`:'<div class="variant">対応する結果を未確認</div>'}</td><td class="action"><button class="detail-button" data-detail="${r.id}" aria-expanded="${open}" aria-controls="detail-${r.id}" aria-label="${esc(name(r))}の詳細">${open?'閉じる −':'詳細 ＋'}</button></td></tr><tr class="details" id="detail-${r.id}" ${open?'':'hidden'}><td colspan="6">${open?detail(r):''}</td></tr>`;}).join('');
-$('ranking').innerHTML=rows.slice().sort((a,b)=>(b.bench[metric]??-1)-(a.bench[metric]??-1)).map(r=>`<div class="rank-row ${r.id===base?.id?'baseline':''}"><div><div class="rank-name">${esc(r.chip)}${r.id===base?.id?' · 基準':''}</div><div class="rank-sub">CPU ${r.cpu} / GPU ${r.gpu}${r.platform==='ios'?' · iPad / iPhone':''}</div></div><div class="rank-track" aria-hidden="true">${r.bench[metric]?`<div class="rank-fill" style="width:${r.bench[metric]/max*100}%"></div>`:''}</div><div class="rank-score"><b>${fmt(r.bench[metric])}</b><span>${ratio(r.bench[metric],baseScore)}</span></div></div>`).join('');}
+$('rows').innerHTML=rows.map(r=>{const score=r.bench[metric],isBase=r.id===base?.id,open=expanded.has(r.id);return `<tr class="data-row ${isBase?'is-base':''}"><td class="identity"><div class="chip-name">${esc(r.chip)}${isBase?'<span class="base-tag">基準</span>':''}${r.status==='発表済み'?'<span class="future">発表済み</span>':''}</div><div class="device">${esc(r.device)}</div></td><td class="cpu"><div class="num">${r.cpu}</div>${coreGrid(r,'cpu')}<div class="split">${[r.s?`S${r.s}`:'',r.p?`P${r.p}`:'',r.e?`E${r.e}`:''].filter(Boolean).join(' + ')}</div></td><td class="gpu"><div class="num">${r.gpu}</div>${coreGrid(r,'gpu')}</td><td class="mem"><div class="badges">${r.memory.length?r.memory.map(m=>`<span class="badge">${m}${r.historicalMemory?.includes(m)?"*":""}</span>`).join(''):'<span class="variant">容量非公表</span>'}</div><div class="unit">${r.memory.length?'GB'+(r.historicalMemory?.length?" · *発売当初":'')+(r.note?' · 条件は詳細へ':''):'増量オプションなし'}</div></td><td class="score"><div class="score-top"><span class="score-value">${fmt(score)}</span><span class="ratio">${ratio(score,baseScore)}</span></div>${score?`<div class="track" aria-hidden="true"><div class="fill" style="width:${score/max*100}%"></div></div>`:'<div class="variant">対応する結果を未確認</div>'}</td><td class="action"><button class="detail-button" data-detail="${r.id}" aria-expanded="${open}" aria-controls="detail-${r.id}" aria-label="${esc(name(r))}の詳細">${open?'閉じる −':'詳細 ＋'}</button></td></tr><tr class="details" id="detail-${r.id}" ${open?'':'hidden'}><td colspan="6">${open?detail(r):''}</td></tr>`;}).join('');
+$('ranking').innerHTML=rows.slice().sort((a,b)=>(b.bench[metric]??-1)-(a.bench[metric]??-1)).map(r=>`<div class="rank-row ${r.id===base?.id?'baseline':''}"><div><div class="rank-name">${esc(r.chip)}${r.id===base?.id?' · 基準':''}</div><div class="rank-sub">CPU ${r.cpu} / GPU ${r.gpu}${r.platform==='ios'?' · iPhone':''}</div></div><div class="rank-track" aria-hidden="true">${r.bench[metric]?`<div class="rank-fill" style="width:${r.bench[metric]/max*100}%"></div>`:''}</div><div class="rank-score"><b>${fmt(r.bench[metric])}</b><span>${ratio(r.bench[metric],baseScore)}</span></div></div>`).join('');}
 document.querySelectorAll('[data-family]').forEach(button=>button.addEventListener('click',()=>{family=button.dataset.family;$('generation').value='all';document.querySelectorAll('[data-family]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));render();}));
 $('search').addEventListener('input',render);['generation','sort','baseline'].forEach(id=>$(id).addEventListener('change',render));$('metric').addEventListener('change',()=>{updateBaseline();render();});
 $('rows').addEventListener('click',event=>{const b=event.target.closest('button');if(!b)return;if(b.dataset.detail){const id=b.dataset.detail;expanded.has(id)?expanded.delete(id):expanded.add(id);render();document.querySelector(`[data-detail="${id}"]`)?.focus();}if(b.dataset.base){$('baseline').value=b.dataset.base;render();$('baseline').focus();}});

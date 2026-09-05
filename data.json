@@ -45,7 +45,7 @@
     "device": "MacBook Air / Pro・iMac・Mac mini",
     "bw": null,
     "ne": 16,
-    "note": "Macの選択肢。iPad Airは8GB固定、iPad Proはストレージに応じ8GB / 16GB。",
+    "note": "",
     "platform": "mac",
     "status": "発売済み",
     "bench": {
@@ -291,34 +291,6 @@
     "benchSource": "https://browser.geekbench.com/mac-benchmarks"
   },
   {
-    "id": "chip-10",
-    "chip": "M2",
-    "generation": "M2",
-    "cpu": 8,
-    "gpu": 9,
-    "p": 4,
-    "e": 4,
-    "s": 0,
-    "memory": [
-      8
-    ],
-    "source": "https://support.apple.com/en-hk/119893",
-    "device": "iPad Air",
-    "bw": null,
-    "ne": 16,
-    "note": "",
-    "platform": "ios",
-    "status": "発売済み",
-    "bench": {
-      "single": 2361,
-      "multi": 9901,
-      "metal": 39107
-    },
-    "benchDevice": "iPad Air 13-inch (M2)",
-    "benchNote": "",
-    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
-  },
-  {
     "id": "chip-11",
     "chip": "M2",
     "generation": "M2",
@@ -336,7 +308,7 @@
     "device": "MacBook Air / Pro・Mac mini",
     "bw": 100,
     "ne": 16,
-    "note": "Macの選択肢。iPad Proは128〜512GBストレージで8GB RAM、1〜2TBで16GB RAM。",
+    "note": "",
     "platform": "mac",
     "status": "発売済み",
     "bench": {
@@ -586,34 +558,6 @@
     "benchSource": "https://browser.geekbench.com/mac-benchmarks"
   },
   {
-    "id": "chip-20",
-    "chip": "M3",
-    "generation": "M3",
-    "cpu": 8,
-    "gpu": 9,
-    "p": 4,
-    "e": 4,
-    "s": 0,
-    "memory": [
-      8
-    ],
-    "source": "https://support.apple.com/en-hk/122242",
-    "device": "iPad Air",
-    "bw": null,
-    "ne": 16,
-    "note": "",
-    "platform": "ios",
-    "status": "発売済み",
-    "bench": {
-      "single": 2744,
-      "multi": 11976,
-      "metal": 44322
-    },
-    "benchDevice": "iPad Air 13-inch (7th generation)",
-    "benchNote": "",
-    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
-  },
-  {
     "id": "chip-21",
     "chip": "M3 Pro",
     "generation": "M3",
@@ -824,62 +768,6 @@
     "benchSource": "https://browser.geekbench.com/mac-benchmarks"
   },
   {
-    "id": "chip-28",
-    "chip": "M4",
-    "generation": "M4",
-    "cpu": 8,
-    "gpu": 9,
-    "p": 3,
-    "e": 5,
-    "s": 0,
-    "memory": [
-      12
-    ],
-    "source": "https://support.apple.com/en-hk/126471",
-    "device": "iPad Air",
-    "bw": 120,
-    "ne": 16,
-    "note": "",
-    "platform": "ios",
-    "status": "発売済み",
-    "bench": {
-      "single": null,
-      "multi": null,
-      "metal": null
-    },
-    "benchDevice": "",
-    "benchNote": "",
-    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
-  },
-  {
-    "id": "chip-29",
-    "chip": "M4",
-    "generation": "M4",
-    "cpu": 9,
-    "gpu": 10,
-    "p": 3,
-    "e": 6,
-    "s": 0,
-    "memory": [
-      8
-    ],
-    "source": "https://www.apple.com/hk/en/ipad/compare/",
-    "device": "iPad Pro · 256 / 512GB",
-    "bw": 120,
-    "ne": 16,
-    "note": "チャートのCPU構成を特定できないためスコア未掲載。",
-    "platform": "ios",
-    "status": "発売済み",
-    "bench": {
-      "single": null,
-      "multi": null,
-      "metal": null
-    },
-    "benchDevice": "",
-    "benchNote": "",
-    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
-  },
-  {
     "id": "chip-30",
     "chip": "M4",
     "generation": "M4",
@@ -927,7 +815,7 @@
     "device": "MacBook Pro / Air・Mac mini・iMac",
     "bw": 120,
     "ne": 16,
-    "note": "Macの選択肢。iPad Proの10コアCPUモデルは1TB / 2TBストレージ・16GB RAM。",
+    "note": "",
     "platform": "mac",
     "status": "発売済み",
     "bench": {
@@ -1058,34 +946,6 @@
     "benchSource": "https://browser.geekbench.com/mac-benchmarks"
   },
   {
-    "id": "chip-36",
-    "chip": "M5",
-    "generation": "M5",
-    "cpu": 9,
-    "gpu": 10,
-    "p": 0,
-    "e": 6,
-    "s": 3,
-    "memory": [
-      12
-    ],
-    "source": "https://support.apple.com/en-us/125406",
-    "device": "iPad Pro · 256 / 512GB",
-    "bw": 153,
-    "ne": 16,
-    "note": "チャートのCPU構成を特定できないためスコア未掲載。",
-    "platform": "ios",
-    "status": "発売済み",
-    "bench": {
-      "single": null,
-      "multi": null,
-      "metal": null
-    },
-    "benchDevice": "",
-    "benchNote": "",
-    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
-  },
-  {
     "id": "chip-37",
     "chip": "M5",
     "generation": "M5",
@@ -1133,7 +993,7 @@
     "device": "MacBook Pro / Air",
     "bw": 153,
     "ne": 16,
-    "note": "Macの選択肢。iPad Proの10コアCPUモデルは1TB / 2TBストレージ・16GB RAM。Vision Proは16GB。",
+    "note": "Vision Proは16GB。",
     "platform": "mac",
     "status": "発売済み",
     "bench": {
