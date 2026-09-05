@@ -1,0 +1,1515 @@
+[
+  {
+    "id": "chip-0",
+    "chip": "M1",
+    "generation": "M1",
+    "cpu": 8,
+    "gpu": 7,
+    "p": 4,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      8,
+      16
+    ],
+    "source": "https://support.apple.com/en-hk/111883",
+    "device": "MacBook Air",
+    "bw": null,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2164,
+      "multi": 8185,
+      "metal": 26938
+    },
+    "benchDevice": "MacBook Air (Late 2020)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-1",
+    "chip": "M1",
+    "generation": "M1",
+    "cpu": 8,
+    "gpu": 8,
+    "p": 4,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      8,
+      16
+    ],
+    "source": "https://support.apple.com/en-hk/111883",
+    "device": "MacBook Air / Pro・iMac・Mac mini",
+    "bw": null,
+    "ne": 16,
+    "note": "Macの選択肢。iPad Airは8GB固定、iPad Proはストレージに応じ8GB / 16GB。",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2164,
+      "multi": 8185,
+      "metal": 28346
+    },
+    "benchDevice": "MacBook Air (Late 2020)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-2",
+    "chip": "M1 Pro",
+    "generation": "M1",
+    "cpu": 8,
+    "gpu": 14,
+    "p": 6,
+    "e": 2,
+    "s": 0,
+    "memory": [
+      16,
+      32
+    ],
+    "source": "https://support.apple.com/en-hk/111902",
+    "device": "MacBook Pro",
+    "bw": 200,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2187,
+      "multi": 11181,
+      "metal": null
+    },
+    "benchDevice": "MacBook Pro (14-inch, 2021)",
+    "benchNote": "CPUの参考値はGPU構成を分離していない集計。GPUスコアは掲載しません。",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-3",
+    "chip": "M1 Pro",
+    "generation": "M1",
+    "cpu": 10,
+    "gpu": 14,
+    "p": 8,
+    "e": 2,
+    "s": 0,
+    "memory": [
+      16,
+      32
+    ],
+    "source": "https://support.apple.com/en-hk/111902",
+    "device": "MacBook Pro",
+    "bw": 200,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2194,
+      "multi": 13891,
+      "metal": null
+    },
+    "benchDevice": "MacBook Pro (14-inch, 2021)",
+    "benchNote": "CPUの参考値はGPU構成を分離していない集計。GPUスコアは掲載しません。",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-4",
+    "chip": "M1 Pro",
+    "generation": "M1",
+    "cpu": 10,
+    "gpu": 16,
+    "p": 8,
+    "e": 2,
+    "s": 0,
+    "memory": [
+      16,
+      32
+    ],
+    "source": "https://support.apple.com/en-hk/111902",
+    "device": "MacBook Pro",
+    "bw": 200,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2194,
+      "multi": 13891,
+      "metal": null
+    },
+    "benchDevice": "MacBook Pro (14-inch, 2021)",
+    "benchNote": "CPUの参考値はGPU構成を分離していない集計。GPUスコアは掲載しません。",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-5",
+    "chip": "M1 Max",
+    "generation": "M1",
+    "cpu": 10,
+    "gpu": 24,
+    "p": 8,
+    "e": 2,
+    "s": 0,
+    "memory": [
+      32,
+      64
+    ],
+    "source": "https://support.apple.com/en-hk/111902",
+    "device": "MacBook Pro / Mac Studio",
+    "bw": 400,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2225,
+      "multi": 14265,
+      "metal": null
+    },
+    "benchDevice": "Mac Studio",
+    "benchNote": "CPUの参考値はGPU構成を分離していない集計。GPUスコアは掲載しません。",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-6",
+    "chip": "M1 Max",
+    "generation": "M1",
+    "cpu": 10,
+    "gpu": 32,
+    "p": 8,
+    "e": 2,
+    "s": 0,
+    "memory": [
+      32,
+      64
+    ],
+    "source": "https://support.apple.com/en-hk/111902",
+    "device": "MacBook Pro / Mac Studio",
+    "bw": 400,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2225,
+      "multi": 14265,
+      "metal": null
+    },
+    "benchDevice": "Mac Studio",
+    "benchNote": "CPUの参考値はGPU構成を分離していない集計。GPUスコアは掲載しません。",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-7",
+    "chip": "M1 Ultra",
+    "generation": "M1",
+    "cpu": 20,
+    "gpu": 48,
+    "p": 16,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      64,
+      128
+    ],
+    "source": "https://support.apple.com/en-hk/111900",
+    "device": "Mac Studio",
+    "bw": 800,
+    "ne": 32,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2223,
+      "multi": 23398,
+      "metal": null
+    },
+    "benchDevice": "Mac Studio",
+    "benchNote": "CPUの参考値はGPU構成を分離していない集計。GPUスコアは掲載しません。",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-8",
+    "chip": "M1 Ultra",
+    "generation": "M1",
+    "cpu": 20,
+    "gpu": 64,
+    "p": 16,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      64,
+      128
+    ],
+    "source": "https://support.apple.com/en-hk/111900",
+    "device": "Mac Studio",
+    "bw": 800,
+    "ne": 32,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2223,
+      "multi": 23398,
+      "metal": null
+    },
+    "benchDevice": "Mac Studio",
+    "benchNote": "CPUの参考値はGPU構成を分離していない集計。GPUスコアは掲載しません。",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-9",
+    "chip": "M2",
+    "generation": "M2",
+    "cpu": 8,
+    "gpu": 8,
+    "p": 4,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      8,
+      16,
+      24
+    ],
+    "source": "https://support.apple.com/en-hk/111867",
+    "device": "MacBook Air",
+    "bw": 100,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2354,
+      "multi": 9674,
+      "metal": null
+    },
+    "benchDevice": "MacBook Air (2022)",
+    "benchNote": "CPUの参考値はGPU構成を分離していない集計。GPUスコアは掲載しません。",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-10",
+    "chip": "M2",
+    "generation": "M2",
+    "cpu": 8,
+    "gpu": 9,
+    "p": 4,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      8
+    ],
+    "source": "https://support.apple.com/en-hk/119893",
+    "device": "iPad Air",
+    "bw": null,
+    "ne": 16,
+    "note": "",
+    "platform": "ios",
+    "status": "発売済み",
+    "bench": {
+      "single": 2361,
+      "multi": 9901,
+      "metal": 39107
+    },
+    "benchDevice": "iPad Air 13-inch (M2)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
+  },
+  {
+    "id": "chip-11",
+    "chip": "M2",
+    "generation": "M2",
+    "cpu": 8,
+    "gpu": 10,
+    "p": 4,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      8,
+      16,
+      24
+    ],
+    "source": "https://support.apple.com/en-hk/111869",
+    "device": "MacBook Air / Pro・Mac mini",
+    "bw": 100,
+    "ne": 16,
+    "note": "Macの選択肢。iPad Proは128〜512GBストレージで8GB RAM、1〜2TBで16GB RAM。",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2400,
+      "multi": 9778,
+      "metal": 43685
+    },
+    "benchDevice": "Mac mini (2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-12",
+    "chip": "M2 Pro",
+    "generation": "M2",
+    "cpu": 10,
+    "gpu": 16,
+    "p": 6,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      16,
+      32
+    ],
+    "source": "https://support.apple.com/en-hk/111340",
+    "device": "MacBook Pro / Mac mini",
+    "bw": 200,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2409,
+      "multi": 13761,
+      "metal": 74373
+    },
+    "benchDevice": "Mac mini (2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-13",
+    "chip": "M2 Pro",
+    "generation": "M2",
+    "cpu": 12,
+    "gpu": 19,
+    "p": 8,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      16,
+      32
+    ],
+    "source": "https://support.apple.com/en-hk/111340",
+    "device": "MacBook Pro / Mac mini",
+    "bw": 200,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2408,
+      "multi": 16373,
+      "metal": 82600
+    },
+    "benchDevice": "Mac mini (2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-14",
+    "chip": "M2 Max",
+    "generation": "M2",
+    "cpu": 12,
+    "gpu": 30,
+    "p": 8,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      32,
+      64
+    ],
+    "source": "https://support.apple.com/en-hk/111835",
+    "device": "MacBook Pro / Mac Studio",
+    "bw": 400,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2488,
+      "multi": 16992,
+      "metal": null
+    },
+    "benchDevice": "MacBook Pro (16-inch, 2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-15",
+    "chip": "M2 Max",
+    "generation": "M2",
+    "cpu": 12,
+    "gpu": 38,
+    "p": 8,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      32,
+      64,
+      96
+    ],
+    "source": "https://support.apple.com/en-hk/111835",
+    "device": "MacBook Pro / Mac Studio",
+    "bw": 400,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2542,
+      "multi": 17384,
+      "metal": 145056
+    },
+    "benchDevice": "Mac Studio (2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-16",
+    "chip": "M2 Ultra",
+    "generation": "M2",
+    "cpu": 24,
+    "gpu": 60,
+    "p": 16,
+    "e": 8,
+    "s": 0,
+    "memory": [
+      64,
+      128,
+      192
+    ],
+    "source": "https://support.apple.com/en-hk/111835",
+    "device": "Mac Studio / Mac Pro",
+    "bw": 800,
+    "ne": 32,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2518,
+      "multi": 28246,
+      "metal": null
+    },
+    "benchDevice": "Mac Studio (2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-17",
+    "chip": "M2 Ultra",
+    "generation": "M2",
+    "cpu": 24,
+    "gpu": 76,
+    "p": 16,
+    "e": 8,
+    "s": 0,
+    "memory": [
+      64,
+      128,
+      192
+    ],
+    "source": "https://support.apple.com/en-hk/111835",
+    "device": "Mac Studio / Mac Pro",
+    "bw": 800,
+    "ne": 32,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2518,
+      "multi": 28246,
+      "metal": 222497
+    },
+    "benchDevice": "Mac Studio (2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-18",
+    "chip": "M3",
+    "generation": "M3",
+    "cpu": 8,
+    "gpu": 8,
+    "p": 4,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      8,
+      16,
+      24
+    ],
+    "source": "https://support.apple.com/en-hk/118551",
+    "device": "MacBook Air / Pro・iMac",
+    "bw": 100,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2753,
+      "multi": 11645,
+      "metal": null
+    },
+    "benchDevice": "iMac (24-inch, 2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-19",
+    "chip": "M3",
+    "generation": "M3",
+    "cpu": 8,
+    "gpu": 10,
+    "p": 4,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      8,
+      16,
+      24
+    ],
+    "source": "https://support.apple.com/en-hk/118551",
+    "device": "MacBook Air / Pro・iMac",
+    "bw": 100,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2753,
+      "multi": 11645,
+      "metal": 47859
+    },
+    "benchDevice": "iMac (24-inch, 2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-20",
+    "chip": "M3",
+    "generation": "M3",
+    "cpu": 8,
+    "gpu": 9,
+    "p": 4,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      8
+    ],
+    "source": "https://support.apple.com/en-hk/122242",
+    "device": "iPad Air",
+    "bw": null,
+    "ne": 16,
+    "note": "",
+    "platform": "ios",
+    "status": "発売済み",
+    "bench": {
+      "single": 2744,
+      "multi": 11976,
+      "metal": 44322
+    },
+    "benchDevice": "iPad Air 13-inch (7th generation)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
+  },
+  {
+    "id": "chip-21",
+    "chip": "M3 Pro",
+    "generation": "M3",
+    "cpu": 11,
+    "gpu": 14,
+    "p": 5,
+    "e": 6,
+    "s": 0,
+    "memory": [
+      18,
+      36
+    ],
+    "source": "https://support.apple.com/en-hk/117736",
+    "device": "MacBook Pro",
+    "bw": 150,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2791,
+      "multi": 15265,
+      "metal": 70159
+    },
+    "benchDevice": "MacBook Pro (14-inch, Nov 2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-22",
+    "chip": "M3 Pro",
+    "generation": "M3",
+    "cpu": 12,
+    "gpu": 18,
+    "p": 6,
+    "e": 6,
+    "s": 0,
+    "memory": [
+      18,
+      36
+    ],
+    "source": "https://support.apple.com/en-hk/117736",
+    "device": "MacBook Pro",
+    "bw": 150,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2780,
+      "multi": 16587,
+      "metal": 76812
+    },
+    "benchDevice": "MacBook Pro (14-inch, Nov 2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-23",
+    "chip": "M3 Max",
+    "generation": "M3",
+    "cpu": 14,
+    "gpu": 30,
+    "p": 10,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      36,
+      96
+    ],
+    "source": "https://support.apple.com/en-hk/117736",
+    "device": "MacBook Pro",
+    "bw": 300,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2811,
+      "multi": 22073,
+      "metal": 132830
+    },
+    "benchDevice": "MacBook Pro (14-inch, Nov 2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-24",
+    "chip": "M3 Max",
+    "generation": "M3",
+    "cpu": 16,
+    "gpu": 40,
+    "p": 12,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      48,
+      64,
+      128
+    ],
+    "source": "https://support.apple.com/en-hk/117736",
+    "device": "MacBook Pro",
+    "bw": 400,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2809,
+      "multi": 24441,
+      "metal": 166064
+    },
+    "benchDevice": "MacBook Pro (14-inch, Nov 2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-25",
+    "chip": "M3 Ultra",
+    "generation": "M3",
+    "cpu": 28,
+    "gpu": 60,
+    "p": 20,
+    "e": 8,
+    "s": 0,
+    "memory": [
+      96,
+      256
+    ],
+    "source": "https://support.apple.com/en-hk/122211",
+    "device": "Mac Studio",
+    "bw": 819,
+    "ne": 32,
+    "note": "確認日時点のApple技術仕様は96GB / 256GB。発売当初は最大512GBも提供。",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2923,
+      "multi": 34967,
+      "metal": 224564
+    },
+    "benchDevice": "Mac Studio (2025)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks",
+    "extraSource": "https://www.apple.com/hk/en/newsroom/2025/03/apple-reveals-m3-ultra-taking-apple-silicon-to-a-new-extreme/"
+  },
+  {
+    "id": "chip-26",
+    "chip": "M3 Ultra",
+    "generation": "M3",
+    "cpu": 32,
+    "gpu": 80,
+    "p": 24,
+    "e": 8,
+    "s": 0,
+    "memory": [
+      96,
+      256,
+      512
+    ],
+    "source": "https://support.apple.com/en-hk/122211",
+    "device": "Mac Studio",
+    "bw": 819,
+    "ne": 32,
+    "note": "確認日時点のApple技術仕様は96GB / 256GB。発売当初は最大512GBも提供。",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2906,
+      "multi": 39059,
+      "metal": 248882
+    },
+    "benchDevice": "Mac Studio (2025)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks",
+    "extraSource": "https://www.apple.com/hk/en/newsroom/2025/03/apple-reveals-m3-ultra-taking-apple-silicon-to-a-new-extreme/",
+    "historicalMemory": [
+      512
+    ]
+  },
+  {
+    "id": "chip-27",
+    "chip": "M4",
+    "generation": "M4",
+    "cpu": 8,
+    "gpu": 8,
+    "p": 4,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      16,
+      24
+    ],
+    "source": "https://www.apple.com/imac/specs/",
+    "device": "iMac",
+    "bw": 120,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3160,
+      "multi": 13357,
+      "metal": 47120
+    },
+    "benchDevice": "iMac (24-inch, 2024)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-28",
+    "chip": "M4",
+    "generation": "M4",
+    "cpu": 8,
+    "gpu": 9,
+    "p": 3,
+    "e": 5,
+    "s": 0,
+    "memory": [
+      12
+    ],
+    "source": "https://support.apple.com/en-hk/126471",
+    "device": "iPad Air",
+    "bw": 120,
+    "ne": 16,
+    "note": "",
+    "platform": "ios",
+    "status": "発売済み",
+    "bench": {
+      "single": null,
+      "multi": null,
+      "metal": null
+    },
+    "benchDevice": "",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
+  },
+  {
+    "id": "chip-29",
+    "chip": "M4",
+    "generation": "M4",
+    "cpu": 9,
+    "gpu": 10,
+    "p": 3,
+    "e": 6,
+    "s": 0,
+    "memory": [
+      8
+    ],
+    "source": "https://www.apple.com/hk/en/ipad/compare/",
+    "device": "iPad Pro · 256 / 512GB",
+    "bw": 120,
+    "ne": 16,
+    "note": "チャートのCPU構成を特定できないためスコア未掲載。",
+    "platform": "ios",
+    "status": "発売済み",
+    "bench": {
+      "single": null,
+      "multi": null,
+      "metal": null
+    },
+    "benchDevice": "",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
+  },
+  {
+    "id": "chip-30",
+    "chip": "M4",
+    "generation": "M4",
+    "cpu": 10,
+    "gpu": 8,
+    "p": 4,
+    "e": 6,
+    "s": 0,
+    "memory": [
+      16,
+      24,
+      32
+    ],
+    "source": "https://www.apple.com/macbook-air/",
+    "device": "MacBook Air",
+    "bw": 120,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3203,
+      "multi": 15061,
+      "metal": 47677
+    },
+    "benchDevice": "MacBook Air (13-inch, 2025)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-31",
+    "chip": "M4",
+    "generation": "M4",
+    "cpu": 10,
+    "gpu": 10,
+    "p": 4,
+    "e": 6,
+    "s": 0,
+    "memory": [
+      16,
+      24,
+      32
+    ],
+    "source": "https://support.apple.com/en-hk/121555",
+    "device": "MacBook Pro / Air・Mac mini・iMac",
+    "bw": 120,
+    "ne": 16,
+    "note": "Macの選択肢。iPad Proの10コアCPUモデルは1TB / 2TBストレージ・16GB RAM。",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3277,
+      "multi": 15352,
+      "metal": 54201
+    },
+    "benchDevice": "Mac mini (2024)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-32",
+    "chip": "M4 Pro",
+    "generation": "M4",
+    "cpu": 12,
+    "gpu": 16,
+    "p": 8,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      24,
+      48,
+      64
+    ],
+    "source": "https://support.apple.com/en-hk/121555",
+    "device": "Mac mini / MacBook Pro",
+    "bw": 273,
+    "ne": 16,
+    "note": "64GBはMac miniのみ。MacBook Proは24GB / 48GB。",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3321,
+      "multi": 21839,
+      "metal": 102130
+    },
+    "benchDevice": "Mac mini (2024)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-33",
+    "chip": "M4 Pro",
+    "generation": "M4",
+    "cpu": 14,
+    "gpu": 20,
+    "p": 10,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      24,
+      48,
+      64
+    ],
+    "source": "https://support.apple.com/en-hk/121555",
+    "device": "Mac mini / MacBook Pro",
+    "bw": 273,
+    "ne": 16,
+    "note": "64GBはMac miniのみ。MacBook Proは24GB / 48GB。",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3312,
+      "multi": 24704,
+      "metal": 115383
+    },
+    "benchDevice": "Mac mini (2024)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-34",
+    "chip": "M4 Max",
+    "generation": "M4",
+    "cpu": 14,
+    "gpu": 32,
+    "p": 10,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      36
+    ],
+    "source": "https://support.apple.com/en-hk/122211",
+    "device": "MacBook Pro / Mac Studio",
+    "bw": 410,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3497,
+      "multi": 25808,
+      "metal": 168533
+    },
+    "benchDevice": "Mac Studio (2025)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-35",
+    "chip": "M4 Max",
+    "generation": "M4",
+    "cpu": 16,
+    "gpu": 40,
+    "p": 12,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      48,
+      64,
+      128
+    ],
+    "source": "https://support.apple.com/en-hk/122211",
+    "device": "MacBook Pro / Mac Studio",
+    "bw": 546,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3492,
+      "multi": 29010,
+      "metal": 201973
+    },
+    "benchDevice": "Mac Studio (2025)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-36",
+    "chip": "M5",
+    "generation": "M5",
+    "cpu": 9,
+    "gpu": 10,
+    "p": 0,
+    "e": 6,
+    "s": 3,
+    "memory": [
+      12
+    ],
+    "source": "https://support.apple.com/en-us/125406",
+    "device": "iPad Pro · 256 / 512GB",
+    "bw": 153,
+    "ne": 16,
+    "note": "チャートのCPU構成を特定できないためスコア未掲載。",
+    "platform": "ios",
+    "status": "発売済み",
+    "bench": {
+      "single": null,
+      "multi": null,
+      "metal": null
+    },
+    "benchDevice": "",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
+  },
+  {
+    "id": "chip-37",
+    "chip": "M5",
+    "generation": "M5",
+    "cpu": 10,
+    "gpu": 8,
+    "p": 0,
+    "e": 6,
+    "s": 4,
+    "memory": [
+      16,
+      24,
+      32
+    ],
+    "source": "https://www.apple.com/macbook-air/specs/",
+    "device": "MacBook Air",
+    "bw": 153,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3572,
+      "multi": 17044,
+      "metal": 65713
+    },
+    "benchDevice": "MacBook Air (13-inch, 2026)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-38",
+    "chip": "M5",
+    "generation": "M5",
+    "cpu": 10,
+    "gpu": 10,
+    "p": 0,
+    "e": 6,
+    "s": 4,
+    "memory": [
+      16,
+      24,
+      32
+    ],
+    "source": "https://www.apple.com/macbook-pro/specs/",
+    "device": "MacBook Pro / Air",
+    "bw": 153,
+    "ne": 16,
+    "note": "Macの選択肢。iPad Proの10コアCPUモデルは1TB / 2TBストレージ・16GB RAM。Vision Proは16GB。",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3637,
+      "multi": 17945,
+      "metal": 72530
+    },
+    "benchDevice": "MacBook Pro (14-inch, 2025)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-39",
+    "chip": "M5 Pro",
+    "generation": "M5",
+    "cpu": 15,
+    "gpu": 16,
+    "p": 10,
+    "e": 0,
+    "s": 5,
+    "memory": [
+      24,
+      48,
+      64
+    ],
+    "source": "https://support.apple.com/en-hk/126318",
+    "device": "MacBook Pro / Mac mini",
+    "bw": 307,
+    "ne": 16,
+    "note": "MacBook ProのこのGPU構成は24GB / 48GB。Mac miniでは64GBも選択可能。",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3679,
+      "multi": 29597,
+      "metal": 124413
+    },
+    "benchDevice": "MacBook Pro (14-inch, 2026)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks",
+    "extraSource": "https://www.apple.com/mac-mini/specs/"
+  },
+  {
+    "id": "chip-40",
+    "chip": "M5 Pro",
+    "generation": "M5",
+    "cpu": 18,
+    "gpu": 20,
+    "p": 12,
+    "e": 0,
+    "s": 6,
+    "memory": [
+      24,
+      48,
+      64
+    ],
+    "source": "https://support.apple.com/en-hk/126318",
+    "device": "MacBook Pro / Mac mini",
+    "bw": 307,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3673,
+      "multi": 33420,
+      "metal": 135148
+    },
+    "benchDevice": "MacBook Pro (14-inch, 2026)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks",
+    "extraSource": "https://www.apple.com/mac-mini/specs/"
+  },
+  {
+    "id": "chip-41",
+    "chip": "M5 Max",
+    "generation": "M5",
+    "cpu": 18,
+    "gpu": 32,
+    "p": 12,
+    "e": 0,
+    "s": 6,
+    "memory": [
+      36
+    ],
+    "source": "https://support.apple.com/en-hk/126318",
+    "device": "MacBook Pro / Mac Studio",
+    "bw": 460,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3692,
+      "multi": 34563,
+      "metal": 194355
+    },
+    "benchDevice": "MacBook Pro (14-inch, 2026)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-42",
+    "chip": "M5 Max",
+    "generation": "M5",
+    "cpu": 18,
+    "gpu": 40,
+    "p": 12,
+    "e": 0,
+    "s": 6,
+    "memory": [
+      48,
+      64,
+      128
+    ],
+    "source": "https://support.apple.com/en-hk/126318",
+    "device": "MacBook Pro / Mac Studio",
+    "bw": 614,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3692,
+      "multi": 34563,
+      "metal": 238242
+    },
+    "benchDevice": "MacBook Pro (14-inch, 2026)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-43",
+    "chip": "M5 Ultra",
+    "generation": "M5",
+    "cpu": 30,
+    "gpu": 64,
+    "p": 20,
+    "e": 0,
+    "s": 10,
+    "memory": [
+      96,
+      256
+    ],
+    "source": "https://www.apple.com/mac-studio/specs/",
+    "device": "Mac Studio",
+    "bw": 1200,
+    "ne": 32,
+    "note": "2026年9月22日発売予定。512GB構成は10月下旬予定。ベンチマーク未確認。",
+    "platform": "mac",
+    "status": "発表済み",
+    "bench": {
+      "single": null,
+      "multi": null,
+      "metal": null
+    },
+    "benchDevice": "",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-44",
+    "chip": "M5 Ultra",
+    "generation": "M5",
+    "cpu": 36,
+    "gpu": 80,
+    "p": 24,
+    "e": 0,
+    "s": 12,
+    "memory": [
+      96,
+      256,
+      512
+    ],
+    "source": "https://www.apple.com/mac-studio/specs/",
+    "device": "Mac Studio",
+    "bw": 1200,
+    "ne": 32,
+    "note": "2026年9月22日発売予定。512GB構成は10月下旬予定。ベンチマーク未確認。",
+    "platform": "mac",
+    "status": "発表済み",
+    "bench": {
+      "single": null,
+      "multi": null,
+      "metal": null
+    },
+    "benchDevice": "",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-45",
+    "chip": "M6",
+    "generation": "M6",
+    "cpu": 12,
+    "gpu": 12,
+    "p": 4,
+    "e": 6,
+    "s": 2,
+    "memory": [
+      16,
+      24,
+      32
+    ],
+    "source": "https://www.apple.com/mac-mini/specs/",
+    "device": "Mac mini",
+    "bw": null,
+    "ne": 32,
+    "note": "16GB時153GB/s、24GB / 32GB時170GB/s。Dual 16-core Neural Engine。2026年9月22日発売予定。",
+    "platform": "mac",
+    "status": "発表済み",
+    "bench": {
+      "single": null,
+      "multi": null,
+      "metal": null
+    },
+    "benchDevice": "",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-46",
+    "chip": "A18 Pro",
+    "generation": "A18",
+    "cpu": 6,
+    "gpu": 5,
+    "p": 2,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      8
+    ],
+    "source": "https://support.apple.com/en-hk/126322",
+    "device": "MacBook Neo",
+    "bw": null,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2928,
+      "multi": 7276,
+      "metal": 31105
+    },
+    "benchDevice": "MacBook Neo",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-47",
+    "chip": "A18 Pro",
+    "generation": "A18",
+    "cpu": 6,
+    "gpu": 6,
+    "p": 2,
+    "e": 4,
+    "s": 0,
+    "memory": [],
+    "source": "https://support.apple.com/en-hk/121031",
+    "device": "iPhone 16 Pro / Pro Max",
+    "bw": null,
+    "ne": 16,
+    "note": "メモリ増量オプションなし。Appleの製品仕様にはRAM容量の記載なし。",
+    "platform": "ios",
+    "status": "発売済み",
+    "bench": {
+      "single": 2893,
+      "multi": 7780,
+      "metal": 27333
+    },
+    "benchDevice": "iPhone 16 Pro",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
+  },
+  {
+    "id": "chip-48",
+    "chip": "A19",
+    "generation": "A19",
+    "cpu": 6,
+    "gpu": 4,
+    "p": 2,
+    "e": 4,
+    "s": 0,
+    "memory": [],
+    "source": "https://www.apple.com/iphone-17e/specs/",
+    "device": "iPhone 17e",
+    "bw": null,
+    "ne": 16,
+    "note": "メモリ増量オプションなし。Appleの製品仕様にはRAM容量の記載なし。",
+    "platform": "ios",
+    "status": "発売済み",
+    "bench": {
+      "single": null,
+      "multi": null,
+      "metal": null
+    },
+    "benchDevice": "",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
+  },
+  {
+    "id": "chip-49",
+    "chip": "A19",
+    "generation": "A19",
+    "cpu": 6,
+    "gpu": 5,
+    "p": 2,
+    "e": 4,
+    "s": 0,
+    "memory": [],
+    "source": "https://support.apple.com/en-hk/125089",
+    "device": "iPhone 17",
+    "bw": null,
+    "ne": 16,
+    "note": "メモリ増量オプションなし。Appleの製品仕様にはRAM容量の記載なし。",
+    "platform": "ios",
+    "status": "発売済み",
+    "bench": {
+      "single": 2993,
+      "multi": 8260,
+      "metal": 35117
+    },
+    "benchDevice": "iPhone 17",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
+  },
+  {
+    "id": "chip-50",
+    "chip": "A19 Pro",
+    "generation": "A19",
+    "cpu": 6,
+    "gpu": 5,
+    "p": 2,
+    "e": 4,
+    "s": 0,
+    "memory": [],
+    "source": "https://www.apple.com/iphone-air/specs/",
+    "device": "iPhone Air",
+    "bw": null,
+    "ne": 16,
+    "note": "メモリ増量オプションなし。Appleの製品仕様にはRAM容量の記載なし。",
+    "platform": "ios",
+    "status": "発売済み",
+    "bench": {
+      "single": 3033,
+      "multi": 8451,
+      "metal": 36980
+    },
+    "benchDevice": "iPhone Air",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
+  },
+  {
+    "id": "chip-51",
+    "chip": "A19 Pro",
+    "generation": "A19",
+    "cpu": 6,
+    "gpu": 6,
+    "p": 2,
+    "e": 4,
+    "s": 0,
+    "memory": [],
+    "source": "https://support.apple.com/en-hk/125090",
+    "device": "iPhone 17 Pro / Pro Max",
+    "bw": null,
+    "ne": 16,
+    "note": "メモリ増量オプションなし。Appleの製品仕様にはRAM容量の記載なし。",
+    "platform": "ios",
+    "status": "発売済み",
+    "bench": {
+      "single": 3153,
+      "multi": 8755,
+      "metal": 42429
+    },
+    "benchDevice": "iPhone 17 Pro",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
+  }
+]

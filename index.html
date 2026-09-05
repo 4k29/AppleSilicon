@@ -1,0 +1,1566 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="description" content="Apple SiliconのCPU・GPUコア数、メモリ構成、ベンチマークを一覧で比較。Mシリーズ全世代とA18 Pro以降に対応。"><title>Silicon Index — Apple Siliconを比較</title>
+<style>
+:root{--bg:#fafafa;--surface:#fff;--text:#202124;--muted:#707176;--line:#e6e6e8;--soft:#f0f0f2;--accent:#1669dd;--accent-bg:#edf4ff;--bar:#a6b4c8;--warn:#8a5a14;--warn-bg:#fff8ec;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','Noto Sans JP',sans-serif;color:var(--text);background:var(--bg);font-synthesis:none}*{box-sizing:border-box}body{margin:0;font-size:14px;line-height:1.6}a{color:var(--accent);text-underline-offset:3px}button,input,select{font:inherit}button,select{cursor:pointer}button{color:inherit}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #6ea7f5;outline-offset:3px}button{border:1px solid var(--line);background:var(--surface);border-radius:9px;padding:8px 13px}button:hover{background:var(--soft)}button[aria-pressed=true]{background:var(--text);color:var(--surface);border-color:var(--text)}.wrap{max-width:1240px;margin:auto;padding:0 32px}header{border-bottom:1px solid var(--line);background:var(--surface)}.nav{height:68px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:17px;font-weight:650;letter-spacing:-.5px;text-decoration:none;color:var(--text)}.brand span{color:var(--muted);font-weight:400}.nav-right{display:flex;gap:22px;align-items:center}.nav-right a{font-size:12px;color:var(--muted);text-decoration:none}.theme{font-size:12px;padding:6px 10px}.intro{padding:44px 0 29px;display:flex;align-items:end;justify-content:space-between;gap:24px}.eyebrow{font-size:10px;font-weight:650;letter-spacing:1.7px;color:var(--muted);margin:0 0 12px}h1{font-size:clamp(27px,3.4vw,40px);letter-spacing:-1.5px;line-height:1.3;margin:0 0 12px;font-weight:650}.intro p{margin:0;color:var(--muted);font-size:13px}.stamp{font-size:11px;color:var(--muted);white-space:nowrap;text-align:right}.stamp strong{font-size:19px;display:block;color:var(--text);font-weight:500;font-variant-numeric:tabular-nums}.summary{display:flex;gap:20px;margin-bottom:25px;color:var(--muted);font-size:12px}.summary b{color:var(--text);font-size:14px;margin-right:5px}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding:20px 0 15px}.segments{display:flex;gap:6px}.segments button{font-size:12px;padding:7px 14px;border-radius:20px}.search{width:230px;border:1px solid var(--line);background:var(--surface);color:var(--text);padding:9px 13px;border-radius:9px}.controls{display:flex;gap:14px;align-items:end;flex-wrap:wrap;padding-bottom:20px}.field{display:flex;flex-direction:column;gap:5px;min-width:125px}.field label{font-size:10px;color:var(--muted);font-weight:550}.field select{border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--text);height:37px;padding:0 30px 0 10px;max-width:320px;font-size:12px}.field.base{flex:1}.field.base select{max-width:100%;width:100%}.reset{font-size:12px;height:37px;color:var(--muted)}.viewline{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}.result-count{font-size:11px;color:var(--muted)}.view-buttons{display:flex;gap:5px}.view-buttons button{font-size:11px;padding:6px 12px}.notice{padding:11px 14px;border-radius:9px;background:var(--warn-bg);color:var(--warn);font-size:11px;margin:0 0 19px;line-height:1.7}.notice a{color:inherit}.table-shell{border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden}table{border-collapse:collapse;width:100%;font-size:12px}th{font-size:10px;text-align:left;font-weight:550;color:var(--muted);padding:13px 18px;background:var(--bg);border-bottom:1px solid var(--line);white-space:nowrap}td{padding:15px 18px;border-bottom:1px solid var(--line);vertical-align:middle}tbody tr:last-child td{border-bottom:0}.chip-name{font-size:17px;font-weight:650;letter-spacing:-.5px;white-space:nowrap}.device{font-size:10px;color:var(--muted);max-width:220px;margin-top:3px}.variant{font-size:10px;color:var(--muted)}.num{font-variant-numeric:tabular-nums;font-size:19px;line-height:1.2;letter-spacing:-.5px}.split{font-size:10px;white-space:nowrap;color:var(--muted);margin-top:4px}.badges{display:flex;gap:4px;flex-wrap:wrap;max-width:195px}.badge{font-variant-numeric:tabular-nums;border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:11px;background:var(--bg);white-space:nowrap}.unit{font-size:10px;color:var(--muted);margin-top:4px}.score{width:210px;min-width:170px}.score-top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-variant-numeric:tabular-nums}.score-value{font-size:15px;font-weight:550}.ratio{color:var(--accent);font-size:12px;font-weight:550}.track{height:5px;border-radius:3px;background:var(--soft);margin-top:7px;overflow:hidden}.fill{height:100%;background:var(--bar);border-radius:3px}.is-base{background:var(--accent-bg)}.is-base .fill{background:var(--accent)}.base-tag{font-size:9px;color:var(--accent);font-weight:600;margin-left:8px}.future{font-size:9px;color:var(--warn);font-weight:500;margin-left:8px}.detail-button{font-size:11px;white-space:nowrap;padding:7px 10px}.details td{padding:0 18px;background:var(--bg)}.detail-content{padding:17px 0;display:grid;grid-template-columns:1fr 1fr;gap:22px;font-size:11px;color:var(--muted)}.detail-content p{margin:4px 0}.detail-content b{color:var(--text);font-weight:550}.detail-metrics{display:flex;gap:20px;margin-bottom:10px}.detail-metrics span{display:block;font-size:16px;color:var(--text);font-variant-numeric:tabular-nums}.detail-content a{display:inline-block;margin-right:15px}.set-base{font-size:11px;margin-top:7px}.empty{padding:60px 20px;text-align:center;color:var(--muted)}#ranking{padding:8px 22px}.rank-row{display:grid;grid-template-columns:185px 1fr 100px;align-items:center;gap:20px;padding:14px 0;border-bottom:1px solid var(--line)}.rank-row:last-child{border-bottom:0}.rank-name{font-size:14px;font-weight:600}.rank-sub{font-size:10px;color:var(--muted)}.rank-track{height:23px;border-radius:4px;background:var(--soft)}.rank-fill{height:100%;min-width:2px;border-radius:4px;background:var(--bar)}.rank-row.baseline .rank-fill{background:var(--accent)}.rank-score{text-align:right;font-variant-numeric:tabular-nums}.rank-score b{font-weight:550;font-size:14px}.rank-score span{display:block;color:var(--accent);font-size:11px}.guide{margin:28px 0 40px;padding:20px 0;border-top:1px solid var(--line)}.guide summary{cursor:pointer;font-size:12px;font-weight:550}.guide-content{max-width:850px;font-size:12px;color:var(--muted);line-height:1.9;padding-top:12px}.guide h3{font-size:12px;color:var(--text);margin:17px 0 5px}.guide p{margin:5px 0}.guide ul{padding-left:18px}.legend{font-size:10px;color:var(--muted);padding-top:12px}footer{border-top:1px solid var(--line);padding:22px 0;font-size:10px;color:var(--muted)}footer .wrap{display:flex;justify-content:space-between;gap:20px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}[hidden]{display:none!important}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141416;--surface:#1d1d20;--text:#eeeef0;--muted:#a0a0a8;--line:#35353b;--soft:#2c2c32;--accent:#8dbbff;--accent-bg:#1b2a40;--bar:#6c839f;--warn:#dbb879;--warn-bg:#2c261c}}:root[data-theme=dark]{--bg:#141416;--surface:#1d1d20;--text:#eeeef0;--muted:#a0a0a8;--line:#35353b;--soft:#2c2c32;--accent:#8dbbff;--accent-bg:#1b2a40;--bar:#6c839f;--warn:#dbb879;--warn-bg:#2c261c}
+@media(max-width:850px){.wrap{padding:0 20px}td,th{padding:13px 10px}.stamp{display:none}.score{min-width:135px;width:170px}.device{max-width:175px}.field{min-width:110px}.controls{gap:10px}}
+@media(max-width:650px){.wrap{padding:0 18px}.nav{height:58px}.brand{font-size:15px}.brand span{display:none}.intro{padding:30px 0 22px}h1{letter-spacing:-1px}.intro p{font-size:12px}.summary{gap:16px;margin-bottom:20px}.toolbar{padding-top:16px}.search{width:100%;order:2}.segments{width:100%}.segments button{flex:1;padding:7px 10px}.controls{display:grid;grid-template-columns:1fr 1fr}.field select{max-width:100%;width:100%}.field.base{grid-column:1/-1}.reset{grid-column:1/-1;height:32px}.notice{font-size:10px}.table-shell{border:none;background:none;overflow:visible}table,tbody{display:block}thead{display:none}tr.data-row{display:grid;grid-template-columns:1fr 1fr 1.7fr;gap:16px 10px;border:1px solid var(--line);border-radius:12px;padding:17px;margin-bottom:10px;background:var(--surface)}tr.data-row.is-base{background:var(--accent-bg)}td{display:block;padding:0;border:0}td.identity{grid-column:1/3}td.action{grid-column:3;grid-row:1;text-align:right;align-self:center}td.cpu,td.gpu,td.mem{grid-row:2}td.cpu:before{content:'CPU';font-size:9px;color:var(--muted);display:block;margin-bottom:5px}td.gpu:before{content:'GPU';font-size:9px;color:var(--muted);display:block;margin-bottom:5px}td.mem:before{content:'メモリ';font-size:9px;color:var(--muted);display:block;margin-bottom:5px}td.score{grid-column:1/-1;width:auto;min-width:0;padding-top:12px;border-top:1px solid var(--line)}.chip-name{font-size:19px}.device{max-width:none}.badges{max-width:none}.badge{font-size:10px}.num{font-size:23px}.details{display:block;margin:-11px 0 10px;border:1px solid var(--line);border-radius:0 0 12px}.details td{padding:0 15px;border-radius:inherit}.detail-content{grid-template-columns:1fr;gap:10px}.rank-row{grid-template-columns:110px 1fr 70px;gap:10px}.rank-name{font-size:12px}.rank-sub{font-size:9px}.rank-track{height:19px}#ranking{padding:0 12px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}.rank-score b{font-size:12px}.rank-score span{font-size:10px}.guide{margin-top:24px}footer .wrap{flex-direction:column;gap:4px}.nav-right{gap:12px}}
+@media(prefers-reduced-motion:no-preference){.fill,.rank-fill{transition:width .2s ease}}@media print{header,.toolbar,.controls,.view-buttons,.action,.notice,footer{display:none}body{background:white;color:black}.wrap{max-width:none;padding:0}tr{break-inside:avoid}.intro{padding:15px 0}}
+</style></head><body>
+<header><nav class="wrap nav" aria-label="メイン"><a class="brand" href="./">Silicon Index <span>/ Apple</span></a><div class="nav-right"><a href="#about">データについて</a><button class="theme" id="theme" aria-label="外観を切り替え">外観：自動</button></div></nav></header>
+<main class="wrap"><section class="intro"><div><p class="eyebrow">APPLE SILICON, AT A GLANCE</p><h1>チップの違いを、ひと目で。</h1><p>コア数、メモリ、ベンチマーク。構成を選んで、性能を比べる。</p></div><div class="stamp">DATA CHECKED<strong>2026.09.04</strong></div></section>
+<div class="summary"><span><b id="chipCount"></b>チップ</span><span><b id="configCount"></b>構成</span><span>Mシリーズ全世代 / A18 Pro以降</span></div>
+<div class="toolbar"><div class="segments" role="group" aria-label="シリーズ"><button data-family="all" aria-pressed="true">すべて</button><button data-family="M" aria-pressed="false">Mシリーズ</button><button data-family="A" aria-pressed="false">Aシリーズ</button></div><label class="sr-only" for="search">チップ・搭載製品を検索</label><input class="search" id="search" type="search" placeholder="チップ・搭載製品を検索" autocomplete="off"></div>
+<div class="controls"><div class="field"><label for="generation">世代</label><select id="generation"><option value="all">すべての世代</option></select></div><div class="field"><label for="metric">性能の指標</label><select id="metric"><option value="multi">CPU マルチコア</option><option value="single">CPU シングルコア</option><option value="metal">GPU Metal</option></select></div><div class="field"><label for="sort">並び順</label><select id="sort"><option value="new">新しい世代順</option><option value="score">スコアが高い順</option><option value="cpu">CPUコア数順</option><option value="gpu">GPUコア数順</option><option value="memory">最大メモリ順</option></select></div><div class="field base"><label for="baseline">比較基準 · この構成を1.00倍として比較</label><select id="baseline"></select></div><button class="reset" id="reset">リセット</button></div>
+<p class="notice">ベンチマークはGeekbench公式チャートの取得値です。公式ページ内に「6 / 7」の表記不一致があるため、倍率は参考比較として表示しています。<a href="#about">詳細</a></p>
+<div class="viewline"><span class="result-count" id="resultCount" role="status" aria-live="polite"></span><div class="view-buttons" role="group" aria-label="表示形式"><button id="tableView" aria-pressed="true">仕様一覧</button><button id="chartView" aria-pressed="false">性能グラフ</button></div></div>
+<div class="table-shell"><table id="table"><caption class="sr-only">Apple Siliconの構成とベンチマーク一覧</caption><thead><tr><th scope="col">チップ / 搭載製品</th><th scope="col">CPUコア</th><th scope="col">GPUコア</th><th scope="col">メモリ構成</th><th scope="col" id="scoreHead">CPU マルチコア</th><th scope="col"><span class="sr-only">詳細</span></th></tr></thead><tbody id="rows"></tbody></table><div id="ranking" hidden aria-label="ベンチマーク比較グラフ"></div><div class="empty" id="empty" hidden>条件に合う構成がありません。<br>検索語や世代を変えてみてください。</div></div>
+<p class="legend" id="legend"></p>
+<details class="guide" id="about"><summary>データの出典・比較の読み方</summary><div class="guide-content"><h3>対象とメモリ</h3><p>M1からM6までのMシリーズ、およびA18 Pro・A19・A19 Proの確認済み構成を掲載。M4 Ultraなど未確認のチップは掲載していません。2026年9月4日時点で発表済みの構成を含みます。搭載製品欄は代表例で、対応製品をすべて列挙したものではありません。</p><p>メモリはストレージ容量ではなくRAMです。同じチップ・CPU・GPU構成でも搭載製品によって選択肢が異なります。「詳細」に製品別の制約を記載しています。iPhoneにはRAMの増量オプションがなく、Appleの製品仕様に容量が記載されていないため「容量非公表」としています。</p><h3>CPUの内訳</h3><p>S＝スーパーコア、P＝高性能コア、E＝高効率コア。名称はAppleの現行表記に準拠。異なる世代の同じコア数が、同じ性能を示すわけではありません。Neural Engineとメモリ帯域幅は各構成の「詳細」に表示します。</p><h3>ベンチマーク</h3><p><a href="https://browser.geekbench.com/mac-benchmarks" target="_blank" rel="noopener noreferrer">Geekbench Mac Benchmarks</a>と<a href="https://browser.geekbench.com/ios-benchmarks" target="_blank" rel="noopener noreferrer">iOS Benchmarks</a>を2026年9月4日に確認した静的データです。自動更新ではありません。各行は詳細に示す代表機種の集計値で、すべての搭載機種を平均したチップ固有の値ではありません。</p><p>公式チャートの説明はGeekbench 7ですが、<a href="https://browser.geekbench.com/macs/macbook-pro-14-inch-2025" target="_blank" rel="noopener noreferrer">M5 MacBook Proの詳細ページ</a>の説明は同じ値をGeekbench 6と記載しています。本サイトはバージョンを断定せず、同時点の公式チャート内での参考比較に限定します。厳密な同一バージョン・同一条件での比較は未検証です。</p><p>倍率＝対象スコア ÷ 比較基準のスコア。1.50倍はスコアが50%高いことを示し、実際の作業が必ず1.50倍速くなるという意味ではありません。OS、冷却、電力設定、メモリ、ソフトによって結果は変わります。CPU・GPUの異なる指標同士は比較しません。GPUはMetalのみで、OpenCL値とは混在させません。</p><p>構成と結果を対応付けられない場合は未掲載とし、他構成の値や推定値で埋めていません。GPU別の区別がない旧世代の集計では、CPU参考値のみ表示する場合があります。</p><h3>公式仕様</h3><p>各行の「詳細 → Apple公式仕様」から元の技術仕様を確認できます。チップの仕様や販売構成が更新された場合、掲載データと異なる可能性があります。</p></div></details>
+<noscript><p>この一覧の表示・比較にはJavaScriptを有効にしてください。</p></noscript></main><footer><div class="wrap"><span>Silicon Index · Independent Apple Silicon reference</span><span>Apple非公式 / データ確認：2026年9月4日</span></div></footer>
+<script id="chip-data" type="application/json">[
+  {
+    "id": "chip-0",
+    "chip": "M1",
+    "generation": "M1",
+    "cpu": 8,
+    "gpu": 7,
+    "p": 4,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      8,
+      16
+    ],
+    "source": "https://support.apple.com/en-hk/111883",
+    "device": "MacBook Air",
+    "bw": null,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2164,
+      "multi": 8185,
+      "metal": 26938
+    },
+    "benchDevice": "MacBook Air (Late 2020)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-1",
+    "chip": "M1",
+    "generation": "M1",
+    "cpu": 8,
+    "gpu": 8,
+    "p": 4,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      8,
+      16
+    ],
+    "source": "https://support.apple.com/en-hk/111883",
+    "device": "MacBook Air / Pro・iMac・Mac mini",
+    "bw": null,
+    "ne": 16,
+    "note": "Macの選択肢。iPad Airは8GB固定、iPad Proはストレージに応じ8GB / 16GB。",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2164,
+      "multi": 8185,
+      "metal": 28346
+    },
+    "benchDevice": "MacBook Air (Late 2020)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-2",
+    "chip": "M1 Pro",
+    "generation": "M1",
+    "cpu": 8,
+    "gpu": 14,
+    "p": 6,
+    "e": 2,
+    "s": 0,
+    "memory": [
+      16,
+      32
+    ],
+    "source": "https://support.apple.com/en-hk/111902",
+    "device": "MacBook Pro",
+    "bw": 200,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2187,
+      "multi": 11181,
+      "metal": null
+    },
+    "benchDevice": "MacBook Pro (14-inch, 2021)",
+    "benchNote": "CPUの参考値はGPU構成を分離していない集計。GPUスコアは掲載しません。",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-3",
+    "chip": "M1 Pro",
+    "generation": "M1",
+    "cpu": 10,
+    "gpu": 14,
+    "p": 8,
+    "e": 2,
+    "s": 0,
+    "memory": [
+      16,
+      32
+    ],
+    "source": "https://support.apple.com/en-hk/111902",
+    "device": "MacBook Pro",
+    "bw": 200,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2194,
+      "multi": 13891,
+      "metal": null
+    },
+    "benchDevice": "MacBook Pro (14-inch, 2021)",
+    "benchNote": "CPUの参考値はGPU構成を分離していない集計。GPUスコアは掲載しません。",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-4",
+    "chip": "M1 Pro",
+    "generation": "M1",
+    "cpu": 10,
+    "gpu": 16,
+    "p": 8,
+    "e": 2,
+    "s": 0,
+    "memory": [
+      16,
+      32
+    ],
+    "source": "https://support.apple.com/en-hk/111902",
+    "device": "MacBook Pro",
+    "bw": 200,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2194,
+      "multi": 13891,
+      "metal": null
+    },
+    "benchDevice": "MacBook Pro (14-inch, 2021)",
+    "benchNote": "CPUの参考値はGPU構成を分離していない集計。GPUスコアは掲載しません。",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-5",
+    "chip": "M1 Max",
+    "generation": "M1",
+    "cpu": 10,
+    "gpu": 24,
+    "p": 8,
+    "e": 2,
+    "s": 0,
+    "memory": [
+      32,
+      64
+    ],
+    "source": "https://support.apple.com/en-hk/111902",
+    "device": "MacBook Pro / Mac Studio",
+    "bw": 400,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2225,
+      "multi": 14265,
+      "metal": null
+    },
+    "benchDevice": "Mac Studio",
+    "benchNote": "CPUの参考値はGPU構成を分離していない集計。GPUスコアは掲載しません。",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-6",
+    "chip": "M1 Max",
+    "generation": "M1",
+    "cpu": 10,
+    "gpu": 32,
+    "p": 8,
+    "e": 2,
+    "s": 0,
+    "memory": [
+      32,
+      64
+    ],
+    "source": "https://support.apple.com/en-hk/111902",
+    "device": "MacBook Pro / Mac Studio",
+    "bw": 400,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2225,
+      "multi": 14265,
+      "metal": null
+    },
+    "benchDevice": "Mac Studio",
+    "benchNote": "CPUの参考値はGPU構成を分離していない集計。GPUスコアは掲載しません。",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-7",
+    "chip": "M1 Ultra",
+    "generation": "M1",
+    "cpu": 20,
+    "gpu": 48,
+    "p": 16,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      64,
+      128
+    ],
+    "source": "https://support.apple.com/en-hk/111900",
+    "device": "Mac Studio",
+    "bw": 800,
+    "ne": 32,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2223,
+      "multi": 23398,
+      "metal": null
+    },
+    "benchDevice": "Mac Studio",
+    "benchNote": "CPUの参考値はGPU構成を分離していない集計。GPUスコアは掲載しません。",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-8",
+    "chip": "M1 Ultra",
+    "generation": "M1",
+    "cpu": 20,
+    "gpu": 64,
+    "p": 16,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      64,
+      128
+    ],
+    "source": "https://support.apple.com/en-hk/111900",
+    "device": "Mac Studio",
+    "bw": 800,
+    "ne": 32,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2223,
+      "multi": 23398,
+      "metal": null
+    },
+    "benchDevice": "Mac Studio",
+    "benchNote": "CPUの参考値はGPU構成を分離していない集計。GPUスコアは掲載しません。",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-9",
+    "chip": "M2",
+    "generation": "M2",
+    "cpu": 8,
+    "gpu": 8,
+    "p": 4,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      8,
+      16,
+      24
+    ],
+    "source": "https://support.apple.com/en-hk/111867",
+    "device": "MacBook Air",
+    "bw": 100,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2354,
+      "multi": 9674,
+      "metal": null
+    },
+    "benchDevice": "MacBook Air (2022)",
+    "benchNote": "CPUの参考値はGPU構成を分離していない集計。GPUスコアは掲載しません。",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-10",
+    "chip": "M2",
+    "generation": "M2",
+    "cpu": 8,
+    "gpu": 9,
+    "p": 4,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      8
+    ],
+    "source": "https://support.apple.com/en-hk/119893",
+    "device": "iPad Air",
+    "bw": null,
+    "ne": 16,
+    "note": "",
+    "platform": "ios",
+    "status": "発売済み",
+    "bench": {
+      "single": 2361,
+      "multi": 9901,
+      "metal": 39107
+    },
+    "benchDevice": "iPad Air 13-inch (M2)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
+  },
+  {
+    "id": "chip-11",
+    "chip": "M2",
+    "generation": "M2",
+    "cpu": 8,
+    "gpu": 10,
+    "p": 4,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      8,
+      16,
+      24
+    ],
+    "source": "https://support.apple.com/en-hk/111869",
+    "device": "MacBook Air / Pro・Mac mini",
+    "bw": 100,
+    "ne": 16,
+    "note": "Macの選択肢。iPad Proは128〜512GBストレージで8GB RAM、1〜2TBで16GB RAM。",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2400,
+      "multi": 9778,
+      "metal": 43685
+    },
+    "benchDevice": "Mac mini (2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-12",
+    "chip": "M2 Pro",
+    "generation": "M2",
+    "cpu": 10,
+    "gpu": 16,
+    "p": 6,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      16,
+      32
+    ],
+    "source": "https://support.apple.com/en-hk/111340",
+    "device": "MacBook Pro / Mac mini",
+    "bw": 200,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2409,
+      "multi": 13761,
+      "metal": 74373
+    },
+    "benchDevice": "Mac mini (2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-13",
+    "chip": "M2 Pro",
+    "generation": "M2",
+    "cpu": 12,
+    "gpu": 19,
+    "p": 8,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      16,
+      32
+    ],
+    "source": "https://support.apple.com/en-hk/111340",
+    "device": "MacBook Pro / Mac mini",
+    "bw": 200,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2408,
+      "multi": 16373,
+      "metal": 82600
+    },
+    "benchDevice": "Mac mini (2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-14",
+    "chip": "M2 Max",
+    "generation": "M2",
+    "cpu": 12,
+    "gpu": 30,
+    "p": 8,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      32,
+      64
+    ],
+    "source": "https://support.apple.com/en-hk/111835",
+    "device": "MacBook Pro / Mac Studio",
+    "bw": 400,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2488,
+      "multi": 16992,
+      "metal": null
+    },
+    "benchDevice": "MacBook Pro (16-inch, 2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-15",
+    "chip": "M2 Max",
+    "generation": "M2",
+    "cpu": 12,
+    "gpu": 38,
+    "p": 8,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      32,
+      64,
+      96
+    ],
+    "source": "https://support.apple.com/en-hk/111835",
+    "device": "MacBook Pro / Mac Studio",
+    "bw": 400,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2542,
+      "multi": 17384,
+      "metal": 145056
+    },
+    "benchDevice": "Mac Studio (2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-16",
+    "chip": "M2 Ultra",
+    "generation": "M2",
+    "cpu": 24,
+    "gpu": 60,
+    "p": 16,
+    "e": 8,
+    "s": 0,
+    "memory": [
+      64,
+      128,
+      192
+    ],
+    "source": "https://support.apple.com/en-hk/111835",
+    "device": "Mac Studio / Mac Pro",
+    "bw": 800,
+    "ne": 32,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2518,
+      "multi": 28246,
+      "metal": null
+    },
+    "benchDevice": "Mac Studio (2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-17",
+    "chip": "M2 Ultra",
+    "generation": "M2",
+    "cpu": 24,
+    "gpu": 76,
+    "p": 16,
+    "e": 8,
+    "s": 0,
+    "memory": [
+      64,
+      128,
+      192
+    ],
+    "source": "https://support.apple.com/en-hk/111835",
+    "device": "Mac Studio / Mac Pro",
+    "bw": 800,
+    "ne": 32,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2518,
+      "multi": 28246,
+      "metal": 222497
+    },
+    "benchDevice": "Mac Studio (2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-18",
+    "chip": "M3",
+    "generation": "M3",
+    "cpu": 8,
+    "gpu": 8,
+    "p": 4,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      8,
+      16,
+      24
+    ],
+    "source": "https://support.apple.com/en-hk/118551",
+    "device": "MacBook Air / Pro・iMac",
+    "bw": 100,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2753,
+      "multi": 11645,
+      "metal": null
+    },
+    "benchDevice": "iMac (24-inch, 2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-19",
+    "chip": "M3",
+    "generation": "M3",
+    "cpu": 8,
+    "gpu": 10,
+    "p": 4,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      8,
+      16,
+      24
+    ],
+    "source": "https://support.apple.com/en-hk/118551",
+    "device": "MacBook Air / Pro・iMac",
+    "bw": 100,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2753,
+      "multi": 11645,
+      "metal": 47859
+    },
+    "benchDevice": "iMac (24-inch, 2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-20",
+    "chip": "M3",
+    "generation": "M3",
+    "cpu": 8,
+    "gpu": 9,
+    "p": 4,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      8
+    ],
+    "source": "https://support.apple.com/en-hk/122242",
+    "device": "iPad Air",
+    "bw": null,
+    "ne": 16,
+    "note": "",
+    "platform": "ios",
+    "status": "発売済み",
+    "bench": {
+      "single": 2744,
+      "multi": 11976,
+      "metal": 44322
+    },
+    "benchDevice": "iPad Air 13-inch (7th generation)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
+  },
+  {
+    "id": "chip-21",
+    "chip": "M3 Pro",
+    "generation": "M3",
+    "cpu": 11,
+    "gpu": 14,
+    "p": 5,
+    "e": 6,
+    "s": 0,
+    "memory": [
+      18,
+      36
+    ],
+    "source": "https://support.apple.com/en-hk/117736",
+    "device": "MacBook Pro",
+    "bw": 150,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2791,
+      "multi": 15265,
+      "metal": 70159
+    },
+    "benchDevice": "MacBook Pro (14-inch, Nov 2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-22",
+    "chip": "M3 Pro",
+    "generation": "M3",
+    "cpu": 12,
+    "gpu": 18,
+    "p": 6,
+    "e": 6,
+    "s": 0,
+    "memory": [
+      18,
+      36
+    ],
+    "source": "https://support.apple.com/en-hk/117736",
+    "device": "MacBook Pro",
+    "bw": 150,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2780,
+      "multi": 16587,
+      "metal": 76812
+    },
+    "benchDevice": "MacBook Pro (14-inch, Nov 2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-23",
+    "chip": "M3 Max",
+    "generation": "M3",
+    "cpu": 14,
+    "gpu": 30,
+    "p": 10,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      36,
+      96
+    ],
+    "source": "https://support.apple.com/en-hk/117736",
+    "device": "MacBook Pro",
+    "bw": 300,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2811,
+      "multi": 22073,
+      "metal": 132830
+    },
+    "benchDevice": "MacBook Pro (14-inch, Nov 2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-24",
+    "chip": "M3 Max",
+    "generation": "M3",
+    "cpu": 16,
+    "gpu": 40,
+    "p": 12,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      48,
+      64,
+      128
+    ],
+    "source": "https://support.apple.com/en-hk/117736",
+    "device": "MacBook Pro",
+    "bw": 400,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2809,
+      "multi": 24441,
+      "metal": 166064
+    },
+    "benchDevice": "MacBook Pro (14-inch, Nov 2023)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-25",
+    "chip": "M3 Ultra",
+    "generation": "M3",
+    "cpu": 28,
+    "gpu": 60,
+    "p": 20,
+    "e": 8,
+    "s": 0,
+    "memory": [
+      96,
+      256
+    ],
+    "source": "https://support.apple.com/en-hk/122211",
+    "device": "Mac Studio",
+    "bw": 819,
+    "ne": 32,
+    "note": "確認日時点のApple技術仕様は96GB / 256GB。発売当初は最大512GBも提供。",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2923,
+      "multi": 34967,
+      "metal": 224564
+    },
+    "benchDevice": "Mac Studio (2025)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks",
+    "extraSource": "https://www.apple.com/hk/en/newsroom/2025/03/apple-reveals-m3-ultra-taking-apple-silicon-to-a-new-extreme/"
+  },
+  {
+    "id": "chip-26",
+    "chip": "M3 Ultra",
+    "generation": "M3",
+    "cpu": 32,
+    "gpu": 80,
+    "p": 24,
+    "e": 8,
+    "s": 0,
+    "memory": [
+      96,
+      256,
+      512
+    ],
+    "source": "https://support.apple.com/en-hk/122211",
+    "device": "Mac Studio",
+    "bw": 819,
+    "ne": 32,
+    "note": "確認日時点のApple技術仕様は96GB / 256GB。発売当初は最大512GBも提供。",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2906,
+      "multi": 39059,
+      "metal": 248882
+    },
+    "benchDevice": "Mac Studio (2025)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks",
+    "extraSource": "https://www.apple.com/hk/en/newsroom/2025/03/apple-reveals-m3-ultra-taking-apple-silicon-to-a-new-extreme/",
+    "historicalMemory": [
+      512
+    ]
+  },
+  {
+    "id": "chip-27",
+    "chip": "M4",
+    "generation": "M4",
+    "cpu": 8,
+    "gpu": 8,
+    "p": 4,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      16,
+      24
+    ],
+    "source": "https://www.apple.com/imac/specs/",
+    "device": "iMac",
+    "bw": 120,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3160,
+      "multi": 13357,
+      "metal": 47120
+    },
+    "benchDevice": "iMac (24-inch, 2024)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-28",
+    "chip": "M4",
+    "generation": "M4",
+    "cpu": 8,
+    "gpu": 9,
+    "p": 3,
+    "e": 5,
+    "s": 0,
+    "memory": [
+      12
+    ],
+    "source": "https://support.apple.com/en-hk/126471",
+    "device": "iPad Air",
+    "bw": 120,
+    "ne": 16,
+    "note": "",
+    "platform": "ios",
+    "status": "発売済み",
+    "bench": {
+      "single": null,
+      "multi": null,
+      "metal": null
+    },
+    "benchDevice": "",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
+  },
+  {
+    "id": "chip-29",
+    "chip": "M4",
+    "generation": "M4",
+    "cpu": 9,
+    "gpu": 10,
+    "p": 3,
+    "e": 6,
+    "s": 0,
+    "memory": [
+      8
+    ],
+    "source": "https://www.apple.com/hk/en/ipad/compare/",
+    "device": "iPad Pro · 256 / 512GB",
+    "bw": 120,
+    "ne": 16,
+    "note": "チャートのCPU構成を特定できないためスコア未掲載。",
+    "platform": "ios",
+    "status": "発売済み",
+    "bench": {
+      "single": null,
+      "multi": null,
+      "metal": null
+    },
+    "benchDevice": "",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
+  },
+  {
+    "id": "chip-30",
+    "chip": "M4",
+    "generation": "M4",
+    "cpu": 10,
+    "gpu": 8,
+    "p": 4,
+    "e": 6,
+    "s": 0,
+    "memory": [
+      16,
+      24,
+      32
+    ],
+    "source": "https://www.apple.com/macbook-air/",
+    "device": "MacBook Air",
+    "bw": 120,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3203,
+      "multi": 15061,
+      "metal": 47677
+    },
+    "benchDevice": "MacBook Air (13-inch, 2025)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-31",
+    "chip": "M4",
+    "generation": "M4",
+    "cpu": 10,
+    "gpu": 10,
+    "p": 4,
+    "e": 6,
+    "s": 0,
+    "memory": [
+      16,
+      24,
+      32
+    ],
+    "source": "https://support.apple.com/en-hk/121555",
+    "device": "MacBook Pro / Air・Mac mini・iMac",
+    "bw": 120,
+    "ne": 16,
+    "note": "Macの選択肢。iPad Proの10コアCPUモデルは1TB / 2TBストレージ・16GB RAM。",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3277,
+      "multi": 15352,
+      "metal": 54201
+    },
+    "benchDevice": "Mac mini (2024)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-32",
+    "chip": "M4 Pro",
+    "generation": "M4",
+    "cpu": 12,
+    "gpu": 16,
+    "p": 8,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      24,
+      48,
+      64
+    ],
+    "source": "https://support.apple.com/en-hk/121555",
+    "device": "Mac mini / MacBook Pro",
+    "bw": 273,
+    "ne": 16,
+    "note": "64GBはMac miniのみ。MacBook Proは24GB / 48GB。",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3321,
+      "multi": 21839,
+      "metal": 102130
+    },
+    "benchDevice": "Mac mini (2024)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-33",
+    "chip": "M4 Pro",
+    "generation": "M4",
+    "cpu": 14,
+    "gpu": 20,
+    "p": 10,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      24,
+      48,
+      64
+    ],
+    "source": "https://support.apple.com/en-hk/121555",
+    "device": "Mac mini / MacBook Pro",
+    "bw": 273,
+    "ne": 16,
+    "note": "64GBはMac miniのみ。MacBook Proは24GB / 48GB。",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3312,
+      "multi": 24704,
+      "metal": 115383
+    },
+    "benchDevice": "Mac mini (2024)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-34",
+    "chip": "M4 Max",
+    "generation": "M4",
+    "cpu": 14,
+    "gpu": 32,
+    "p": 10,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      36
+    ],
+    "source": "https://support.apple.com/en-hk/122211",
+    "device": "MacBook Pro / Mac Studio",
+    "bw": 410,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3497,
+      "multi": 25808,
+      "metal": 168533
+    },
+    "benchDevice": "Mac Studio (2025)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-35",
+    "chip": "M4 Max",
+    "generation": "M4",
+    "cpu": 16,
+    "gpu": 40,
+    "p": 12,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      48,
+      64,
+      128
+    ],
+    "source": "https://support.apple.com/en-hk/122211",
+    "device": "MacBook Pro / Mac Studio",
+    "bw": 546,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3492,
+      "multi": 29010,
+      "metal": 201973
+    },
+    "benchDevice": "Mac Studio (2025)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-36",
+    "chip": "M5",
+    "generation": "M5",
+    "cpu": 9,
+    "gpu": 10,
+    "p": 0,
+    "e": 6,
+    "s": 3,
+    "memory": [
+      12
+    ],
+    "source": "https://support.apple.com/en-us/125406",
+    "device": "iPad Pro · 256 / 512GB",
+    "bw": 153,
+    "ne": 16,
+    "note": "チャートのCPU構成を特定できないためスコア未掲載。",
+    "platform": "ios",
+    "status": "発売済み",
+    "bench": {
+      "single": null,
+      "multi": null,
+      "metal": null
+    },
+    "benchDevice": "",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
+  },
+  {
+    "id": "chip-37",
+    "chip": "M5",
+    "generation": "M5",
+    "cpu": 10,
+    "gpu": 8,
+    "p": 0,
+    "e": 6,
+    "s": 4,
+    "memory": [
+      16,
+      24,
+      32
+    ],
+    "source": "https://www.apple.com/macbook-air/specs/",
+    "device": "MacBook Air",
+    "bw": 153,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3572,
+      "multi": 17044,
+      "metal": 65713
+    },
+    "benchDevice": "MacBook Air (13-inch, 2026)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-38",
+    "chip": "M5",
+    "generation": "M5",
+    "cpu": 10,
+    "gpu": 10,
+    "p": 0,
+    "e": 6,
+    "s": 4,
+    "memory": [
+      16,
+      24,
+      32
+    ],
+    "source": "https://www.apple.com/macbook-pro/specs/",
+    "device": "MacBook Pro / Air",
+    "bw": 153,
+    "ne": 16,
+    "note": "Macの選択肢。iPad Proの10コアCPUモデルは1TB / 2TBストレージ・16GB RAM。Vision Proは16GB。",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3637,
+      "multi": 17945,
+      "metal": 72530
+    },
+    "benchDevice": "MacBook Pro (14-inch, 2025)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-39",
+    "chip": "M5 Pro",
+    "generation": "M5",
+    "cpu": 15,
+    "gpu": 16,
+    "p": 10,
+    "e": 0,
+    "s": 5,
+    "memory": [
+      24,
+      48,
+      64
+    ],
+    "source": "https://support.apple.com/en-hk/126318",
+    "device": "MacBook Pro / Mac mini",
+    "bw": 307,
+    "ne": 16,
+    "note": "MacBook ProのこのGPU構成は24GB / 48GB。Mac miniでは64GBも選択可能。",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3679,
+      "multi": 29597,
+      "metal": 124413
+    },
+    "benchDevice": "MacBook Pro (14-inch, 2026)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks",
+    "extraSource": "https://www.apple.com/mac-mini/specs/"
+  },
+  {
+    "id": "chip-40",
+    "chip": "M5 Pro",
+    "generation": "M5",
+    "cpu": 18,
+    "gpu": 20,
+    "p": 12,
+    "e": 0,
+    "s": 6,
+    "memory": [
+      24,
+      48,
+      64
+    ],
+    "source": "https://support.apple.com/en-hk/126318",
+    "device": "MacBook Pro / Mac mini",
+    "bw": 307,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3673,
+      "multi": 33420,
+      "metal": 135148
+    },
+    "benchDevice": "MacBook Pro (14-inch, 2026)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks",
+    "extraSource": "https://www.apple.com/mac-mini/specs/"
+  },
+  {
+    "id": "chip-41",
+    "chip": "M5 Max",
+    "generation": "M5",
+    "cpu": 18,
+    "gpu": 32,
+    "p": 12,
+    "e": 0,
+    "s": 6,
+    "memory": [
+      36
+    ],
+    "source": "https://support.apple.com/en-hk/126318",
+    "device": "MacBook Pro / Mac Studio",
+    "bw": 460,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3692,
+      "multi": 34563,
+      "metal": 194355
+    },
+    "benchDevice": "MacBook Pro (14-inch, 2026)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-42",
+    "chip": "M5 Max",
+    "generation": "M5",
+    "cpu": 18,
+    "gpu": 40,
+    "p": 12,
+    "e": 0,
+    "s": 6,
+    "memory": [
+      48,
+      64,
+      128
+    ],
+    "source": "https://support.apple.com/en-hk/126318",
+    "device": "MacBook Pro / Mac Studio",
+    "bw": 614,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 3692,
+      "multi": 34563,
+      "metal": 238242
+    },
+    "benchDevice": "MacBook Pro (14-inch, 2026)",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-43",
+    "chip": "M5 Ultra",
+    "generation": "M5",
+    "cpu": 30,
+    "gpu": 64,
+    "p": 20,
+    "e": 0,
+    "s": 10,
+    "memory": [
+      96,
+      256
+    ],
+    "source": "https://www.apple.com/mac-studio/specs/",
+    "device": "Mac Studio",
+    "bw": 1200,
+    "ne": 32,
+    "note": "2026年9月22日発売予定。512GB構成は10月下旬予定。ベンチマーク未確認。",
+    "platform": "mac",
+    "status": "発表済み",
+    "bench": {
+      "single": null,
+      "multi": null,
+      "metal": null
+    },
+    "benchDevice": "",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-44",
+    "chip": "M5 Ultra",
+    "generation": "M5",
+    "cpu": 36,
+    "gpu": 80,
+    "p": 24,
+    "e": 0,
+    "s": 12,
+    "memory": [
+      96,
+      256,
+      512
+    ],
+    "source": "https://www.apple.com/mac-studio/specs/",
+    "device": "Mac Studio",
+    "bw": 1200,
+    "ne": 32,
+    "note": "2026年9月22日発売予定。512GB構成は10月下旬予定。ベンチマーク未確認。",
+    "platform": "mac",
+    "status": "発表済み",
+    "bench": {
+      "single": null,
+      "multi": null,
+      "metal": null
+    },
+    "benchDevice": "",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-45",
+    "chip": "M6",
+    "generation": "M6",
+    "cpu": 12,
+    "gpu": 12,
+    "p": 4,
+    "e": 6,
+    "s": 2,
+    "memory": [
+      16,
+      24,
+      32
+    ],
+    "source": "https://www.apple.com/mac-mini/specs/",
+    "device": "Mac mini",
+    "bw": null,
+    "ne": 32,
+    "note": "16GB時153GB/s、24GB / 32GB時170GB/s。Dual 16-core Neural Engine。2026年9月22日発売予定。",
+    "platform": "mac",
+    "status": "発表済み",
+    "bench": {
+      "single": null,
+      "multi": null,
+      "metal": null
+    },
+    "benchDevice": "",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-46",
+    "chip": "A18 Pro",
+    "generation": "A18",
+    "cpu": 6,
+    "gpu": 5,
+    "p": 2,
+    "e": 4,
+    "s": 0,
+    "memory": [
+      8
+    ],
+    "source": "https://support.apple.com/en-hk/126322",
+    "device": "MacBook Neo",
+    "bw": null,
+    "ne": 16,
+    "note": "",
+    "platform": "mac",
+    "status": "発売済み",
+    "bench": {
+      "single": 2928,
+      "multi": 7276,
+      "metal": 31105
+    },
+    "benchDevice": "MacBook Neo",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/mac-benchmarks"
+  },
+  {
+    "id": "chip-47",
+    "chip": "A18 Pro",
+    "generation": "A18",
+    "cpu": 6,
+    "gpu": 6,
+    "p": 2,
+    "e": 4,
+    "s": 0,
+    "memory": [],
+    "source": "https://support.apple.com/en-hk/121031",
+    "device": "iPhone 16 Pro / Pro Max",
+    "bw": null,
+    "ne": 16,
+    "note": "メモリ増量オプションなし。Appleの製品仕様にはRAM容量の記載なし。",
+    "platform": "ios",
+    "status": "発売済み",
+    "bench": {
+      "single": 2893,
+      "multi": 7780,
+      "metal": 27333
+    },
+    "benchDevice": "iPhone 16 Pro",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
+  },
+  {
+    "id": "chip-48",
+    "chip": "A19",
+    "generation": "A19",
+    "cpu": 6,
+    "gpu": 4,
+    "p": 2,
+    "e": 4,
+    "s": 0,
+    "memory": [],
+    "source": "https://www.apple.com/iphone-17e/specs/",
+    "device": "iPhone 17e",
+    "bw": null,
+    "ne": 16,
+    "note": "メモリ増量オプションなし。Appleの製品仕様にはRAM容量の記載なし。",
+    "platform": "ios",
+    "status": "発売済み",
+    "bench": {
+      "single": null,
+      "multi": null,
+      "metal": null
+    },
+    "benchDevice": "",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
+  },
+  {
+    "id": "chip-49",
+    "chip": "A19",
+    "generation": "A19",
+    "cpu": 6,
+    "gpu": 5,
+    "p": 2,
+    "e": 4,
+    "s": 0,
+    "memory": [],
+    "source": "https://support.apple.com/en-hk/125089",
+    "device": "iPhone 17",
+    "bw": null,
+    "ne": 16,
+    "note": "メモリ増量オプションなし。Appleの製品仕様にはRAM容量の記載なし。",
+    "platform": "ios",
+    "status": "発売済み",
+    "bench": {
+      "single": 2993,
+      "multi": 8260,
+      "metal": 35117
+    },
+    "benchDevice": "iPhone 17",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
+  },
+  {
+    "id": "chip-50",
+    "chip": "A19 Pro",
+    "generation": "A19",
+    "cpu": 6,
+    "gpu": 5,
+    "p": 2,
+    "e": 4,
+    "s": 0,
+    "memory": [],
+    "source": "https://www.apple.com/iphone-air/specs/",
+    "device": "iPhone Air",
+    "bw": null,
+    "ne": 16,
+    "note": "メモリ増量オプションなし。Appleの製品仕様にはRAM容量の記載なし。",
+    "platform": "ios",
+    "status": "発売済み",
+    "bench": {
+      "single": 3033,
+      "multi": 8451,
+      "metal": 36980
+    },
+    "benchDevice": "iPhone Air",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
+  },
+  {
+    "id": "chip-51",
+    "chip": "A19 Pro",
+    "generation": "A19",
+    "cpu": 6,
+    "gpu": 6,
+    "p": 2,
+    "e": 4,
+    "s": 0,
+    "memory": [],
+    "source": "https://support.apple.com/en-hk/125090",
+    "device": "iPhone 17 Pro / Pro Max",
+    "bw": null,
+    "ne": 16,
+    "note": "メモリ増量オプションなし。Appleの製品仕様にはRAM容量の記載なし。",
+    "platform": "ios",
+    "status": "発売済み",
+    "bench": {
+      "single": 3153,
+      "multi": 8755,
+      "metal": 42429
+    },
+    "benchDevice": "iPhone 17 Pro",
+    "benchNote": "",
+    "benchSource": "https://browser.geekbench.com/ios-benchmarks"
+  }
+]</script>
+<script>
+'use strict';
+const DATA=JSON.parse(document.getElementById('chip-data').textContent);
+const $=id=>document.getElementById(id);
+const nf=new Intl.NumberFormat('ja-JP');
+const fmt=v=>v==null?'未掲載':nf.format(v);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const labels={single:'CPU シングルコア',multi:'CPU マルチコア',metal:'GPU Metal'};
+let family='all',view='table',expanded=new Set();
+const rank=r=>r.chip.startsWith('M')?Number(r.generation.slice(1))*10+({Pro:1,Max:2,Ultra:3}[r.chip.split(' ')[1]]||0):Number(r.generation.slice(1))*10-200+(r.chip.includes('Pro')?1:0);
+const name=r=>`${r.chip} · CPU ${r.cpu} / GPU ${r.gpu}${r.platform==='ios'?' · '+r.device:''}`;
+$('chipCount').textContent=new Set(DATA.map(r=>r.chip)).size;$('configCount').textContent=DATA.length;
+const generations=[...new Set(DATA.map(r=>r.generation))];
+$('generation').insertAdjacentHTML('beforeend',generations.map(g=>`<option value="${esc(g)}">${esc(g)}</option>`).join(''));
+const baseOptions=DATA.slice().sort((a,b)=>rank(b)-rank(a)||b.gpu-a.gpu);
+function updateBaseline(){const old=$('baseline').value;const available=baseOptions.filter(r=>r.bench[$('metric').value]>0);$('baseline').innerHTML=available.map(r=>`<option value="${r.id}">${esc(name(r))}</option>`).join('');$('baseline').value=available.some(r=>r.id===old)?old:(available.find(r=>r.chip==='M1'&&r.gpu===8)?.id||available[0]?.id||'');}
+function filtered(){const q=$('search').value.trim().toLowerCase();return DATA.filter(r=>(family==='all'||r.chip.startsWith(family))&&($('generation').value==='all'||r.generation===$('generation').value)&&(!q||[r.chip,r.device,`${r.cpu} ${r.gpu}`].join(' ').toLowerCase().includes(q))).sort((a,b)=>{let d=0;const k=$('sort').value;if(k==='score')d=(b.bench[$('metric').value]??-1)-(a.bench[$('metric').value]??-1);if(k==='cpu')d=b.cpu-a.cpu;if(k==='gpu')d=b.gpu-a.gpu;if(k==='memory')d=Math.max(0,...b.memory)-Math.max(0,...a.memory);return d||rank(b)-rank(a)||b.cpu-a.cpu||b.gpu-a.gpu;});}
+function ratio(v,base){return v>0&&base>0?(v/base).toFixed(2)+'×':'—';}
+function detail(r){return `<div class="detail-content"><div><div class="detail-metrics"><div>シングルコア<span>${fmt(r.bench.single)}</span></div><div>マルチコア<span>${fmt(r.bench.multi)}</span></div><div>Metal<span>${fmt(r.bench.metal)}</span></div></div><p>ベンチマーク代表機種：<b>${esc(r.benchDevice||'対応する集計値を確認できていません')}</b></p>${r.benchNote?`<p>${esc(r.benchNote)}</p>`:''}<p>チャート取得日：2026年9月4日 / 版表記不一致のため参考値</p><a href="${esc(r.benchSource)}" target="_blank" rel="noopener noreferrer">Geekbench出典 ↗</a>${r.bench[$('metric').value]>0?`<button class="set-base" data-base="${r.id}">この構成を比較基準にする</button>`:''}</div><div><p>Neural Engine：<b>${r.ne}コア</b>　メモリ帯域幅：<b>${r.bw==null?'未記載・条件別':nf.format(r.bw)+' GB/s'}</b></p><p>${esc(r.note||'表示したメモリ容量は、このCPU / GPU構成で選べる構成です。製品・販売時期による差は公式仕様をご確認ください。')}</p><p>状態：${esc(r.status)}</p><a href="${esc(r.source)}" target="_blank" rel="noopener noreferrer">Apple公式仕様 ↗</a>${r.extraSource?`<a href="${esc(r.extraSource)}" target="_blank" rel="noopener noreferrer">補足の公式出典 ↗</a>`:''}</div></div>`;}
+function render(){const rows=filtered(),metric=$('metric').value,base=DATA.find(r=>r.id===$('baseline').value),baseScore=base?.bench[metric];const max=Math.max(1,...rows.map(r=>r.bench[metric]||0));$('resultCount').textContent=`${rows.length}構成を表示 · ${rows.filter(r=>r.bench[metric]>0).length}構成にスコアあり`;$('scoreHead').textContent=labels[metric];$('legend').textContent=`${labels[metric]} / 棒の長さは表示中の最高値を100%として表示。倍率は ${base?name(base):'未選択'} を基準に算出。`;$('empty').hidden=rows.length>0;$('table').hidden=view!=='table'||!rows.length;$('ranking').hidden=view!=='chart'||!rows.length;
+$('rows').innerHTML=rows.map(r=>{const score=r.bench[metric],isBase=r.id===base?.id,open=expanded.has(r.id);return `<tr class="data-row ${isBase?'is-base':''}"><td class="identity"><div class="chip-name">${esc(r.chip)}${isBase?'<span class="base-tag">基準</span>':''}${r.status==='発表済み'?'<span class="future">発表済み</span>':''}</div><div class="device">${esc(r.device)}</div></td><td class="cpu"><div class="num">${r.cpu}</div><div class="split">${[r.s?`S${r.s}`:'',r.p?`P${r.p}`:'',r.e?`E${r.e}`:''].filter(Boolean).join(' + ')}</div></td><td class="gpu"><div class="num">${r.gpu}</div></td><td class="mem"><div class="badges">${r.memory.length?r.memory.map(m=>`<span class="badge">${m}${r.historicalMemory?.includes(m)?"*":""}</span>`).join(''):'<span class="variant">容量非公表</span>'}</div><div class="unit">${r.memory.length?'GB'+(r.historicalMemory?.length?" · *発売当初":'')+(r.note?' · 条件は詳細へ':''):'増量オプションなし'}</div></td><td class="score"><div class="score-top"><span class="score-value">${fmt(score)}</span><span class="ratio">${ratio(score,baseScore)}</span></div>${score?`<div class="track" aria-hidden="true"><div class="fill" style="width:${score/max*100}%"></div></div>`:'<div class="variant">対応する結果を未確認</div>'}</td><td class="action"><button class="detail-button" data-detail="${r.id}" aria-expanded="${open}" aria-controls="detail-${r.id}" aria-label="${esc(name(r))}の詳細">${open?'閉じる −':'詳細 ＋'}</button></td></tr><tr class="details" id="detail-${r.id}" ${open?'':'hidden'}><td colspan="6">${open?detail(r):''}</td></tr>`;}).join('');
+$('ranking').innerHTML=rows.slice().sort((a,b)=>(b.bench[metric]??-1)-(a.bench[metric]??-1)).map(r=>`<div class="rank-row ${r.id===base?.id?'baseline':''}"><div><div class="rank-name">${esc(r.chip)}${r.id===base?.id?' · 基準':''}</div><div class="rank-sub">CPU ${r.cpu} / GPU ${r.gpu}${r.platform==='ios'?' · iPad / iPhone':''}</div></div><div class="rank-track" aria-hidden="true">${r.bench[metric]?`<div class="rank-fill" style="width:${r.bench[metric]/max*100}%"></div>`:''}</div><div class="rank-score"><b>${fmt(r.bench[metric])}</b><span>${ratio(r.bench[metric],baseScore)}</span></div></div>`).join('');}
+document.querySelectorAll('[data-family]').forEach(button=>button.addEventListener('click',()=>{family=button.dataset.family;$('generation').value='all';document.querySelectorAll('[data-family]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));render();}));
+$('search').addEventListener('input',render);['generation','sort','baseline'].forEach(id=>$(id).addEventListener('change',render));$('metric').addEventListener('change',()=>{updateBaseline();render();});
+$('rows').addEventListener('click',event=>{const b=event.target.closest('button');if(!b)return;if(b.dataset.detail){const id=b.dataset.detail;expanded.has(id)?expanded.delete(id):expanded.add(id);render();document.querySelector(`[data-detail="${id}"]`)?.focus();}if(b.dataset.base){$('baseline').value=b.dataset.base;render();$('baseline').focus();}});
+function setView(v){view=v;$('tableView').setAttribute('aria-pressed',String(v==='table'));$('chartView').setAttribute('aria-pressed',String(v==='chart'));render();}$('tableView').addEventListener('click',()=>setView('table'));$('chartView').addEventListener('click',()=>setView('chart'));
+$('reset').addEventListener('click',()=>{family='all';$('search').value='';$('generation').value='all';$('sort').value='new';$('metric').value='multi';$('baseline').value='';expanded.clear();updateBaseline();document.querySelectorAll('[data-family]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.family==='all')));setView('table');});
+let theme='auto';try{theme=localStorage.getItem('silicon-theme')||'auto';}catch{}function applyTheme(){if(theme==='auto')delete document.documentElement.dataset.theme;else document.documentElement.dataset.theme=theme;$('theme').textContent='外観：'+({auto:'自動',light:'ライト',dark:'ダーク'}[theme]||'自動');}applyTheme();$('theme').addEventListener('click',()=>{theme=({auto:'light',light:'dark',dark:'auto'})[theme]||'auto';try{localStorage.setItem('silicon-theme',theme);}catch{}applyTheme();});
+updateBaseline();render();
+document.querySelectorAll('a[href="#about"]').forEach(a=>a.addEventListener('click',()=>{$('about').open=true;}));
+</script></body></html>
