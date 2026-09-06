@@ -1,7 +1,10 @@
 'use strict';
 /* Live memory-load simulation for Silicon Arena.
-   This is a game telemetry value, not real unified-memory usage. */
+   Capacity uses the real memory configuration selected in the loadout.
+   Usage is game telemetry, not measured real-world unified-memory usage. */
 function arenaMemoryCapacity(r){
+  const selectedCapacity=Number(r?.memoryCapacity||r?.memoryConfiguration);
+  if(Number.isFinite(selectedCapacity)&&selectedCapacity>0)return selectedCapacity;
   const values=Array.isArray(r?.chip?.memory)?r.chip.memory.map(Number).filter(Number.isFinite):[];
   return values.length?Math.max(...values):8;
 }
