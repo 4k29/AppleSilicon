@@ -27,11 +27,17 @@ function syncArenaMemoryOptions(){
   selectEl.disabled=options.length<=1;
 }
 
+/* The chosen memory must exist before the base start() builds run/spec/HUD.
+   Keep it on globalThis during that short window so every extension reads the
+   exact same capacity from the first frame. */
+globalThis.arenaPendingMemory=0;
 const arenaBaseSpecForConfig=spec;
 spec=function(c){
   const result=arenaBaseSpecForConfig(c);
-  const memory=arenaSelectedMemory(c);
+  const pending=Number(globalThis.arenaPendingMemory);
+  const memory=Number.isFinite(pending)&&pending>0?pending:arenaSelectedMemory(c);
   result.shield=Math.min(60,Math.max(0,Math.round(12*Math.log2(Math.max(1,memory)/16))));
+  result.memoryCapacity=memory;
   return result;
 };
 
@@ -39,25 +45,32 @@ const arenaBasePreviewForConfig=preview;
 preview=function(){
   syncArenaMemoryOptions();
   arenaBasePreviewForConfig();
+  const c=selected(),memory=arenaSelectedMemory(c);
   const note=document.createElement('p');
   note.className='ratios config-note';
-  note.textContent=`選択構成：${selected().cpu} CPU / ${selected().gpu} GPU / ${arenaSelectedMemory()}GB unified memory`;
+  note.textContent=`選択構成：${c.cpu} CPU / ${c.gpu} GPU / ${memory}GB unified memory`;
   $('stats').append(note);
 };
 
 const arenaBaseStartForConfig=start;
 start=function(){
   const memory=arenaSelectedMemory();
-  arenaBaseStartForConfig();
-  if(run){
-    run.memoryCapacity=memory;
-    run.memoryConfiguration=memory;
-    hud();
+  globalThis.arenaPendingMemory=memory;
+  try{
+    arenaBaseStartForConfig();
+    if(run){
+      run.memoryCapacity=memory;
+      run.memoryConfiguration=memory;
+      run.selectedMemory=memory;
+    }
+  }finally{
+    globalThis.arenaPendingMemory=0;
   }
+  if(run)hud();
 };
 
 const arenaBaseBestKeyForConfig=bestKey;
-bestKey=function(){return `${arenaBaseBestKeyForConfig()}-mem${arenaSelectedMemory()}`;};
+bestKey=function(){return `${arenaBaseBestKeyForConfig()}-mem${run?.selectedMemory||arenaSelectedMemory()}`;};
 
 const chipSelectForConfig=document.getElementById('chip');
 const memorySelectForConfig=document.getElementById('memoryConfig');
