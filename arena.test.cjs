@@ -5,6 +5,9 @@ const els={},modes=['normal','hard'].map(mode=>{const e=new El();e.dataset.mode=
 setImmediate(()=>{vm.runInContext(`
 function check(x,msg){if(!x)throw Error(msg)}
 check(chips.length===27,'data count');
+check(enemyModels.a18.name==='A18 Pro'&&enemyModels.a19.name==='A19 Pro','enemy labels');
+for(const k of ['single','multi','metal'])check(enemyModels.a19.ratios[k]>enemyModels.a18.ratios[k],'A19 stronger '+k);
+start();spawn();check(run.enemies[0].name==='A18 Pro','normal enemy');run.t=20;for(let i=0;i<50;i++)spawn();check(run.enemies.some(e=>e.name==='A19 Pro'),'strong enemy');for(const e of run.enemies){check(Number.isFinite(e.damage)&&e.damage>0,'contact damage');check(Number.isFinite(e.shotDamage)&&e.shotDamage>0,'shot damage');}
 for(const c of chips){const s=spec(c);check(s.interval>0&&s.shots>=1&&s.shots<=6&&s.damage>0&&s.shield>=0,'stats')}
 start();check(state==='running','start');draw();
 const oldY=run.y;keys.add('arrowup');update(.03);check(run.y<oldY,'movement');keys.clear();
