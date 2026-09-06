@@ -5,7 +5,7 @@
 'use strict';
 const known=['M1','M1 Pro','M1 Max','M1 Ultra','M2','M2 Pro','M2 Max','M2 Ultra','M3','M3 Pro','M3 Max','M3 Ultra','M4','M4 Pro','M4 Max','M5','M5 Pro','M5 Max','M5 Ultra','M6','A18 Pro','A19','A19 Pro'];
 const catalog=Object.fromEntries(known.map(name=>[name,{name}]));
-const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function parts(name){const tokens=String(name).trim().split(/\s+/);return{model:tokens.shift()||'',variant:tokens.join(' ')}};
 function html(name,className='',eager=false){const p=parts(name);return `<span class="official-chip text-chip ${esc(className)}" role="img" aria-label="${esc(name)}"><span class="chip-face"><span class="chip-main"><span class="chip-apple"></span>${esc(p.model)}</span>${p.variant?`<span class="chip-variant">${esc(p.variant)}</span>`:''}</span></span>`;}
 function element(name,className='',eager=false){const wrap=document.createElement('span');wrap.innerHTML=html(name,className,eager);return wrap.firstElementChild;}
