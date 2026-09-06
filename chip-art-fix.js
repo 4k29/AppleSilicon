@@ -1,6 +1,16 @@
 (function(){
 'use strict';
 if(!globalThis.ChipArt)return;
+
+/* Use Apple's current official A18 Pro chip icon from the MacBook Neo specs.
+   This is a direct chip artwork, not the cinematic iPhone 16 Pro highlight frame. */
+const a18=ChipArt.catalog['A18 Pro'];
+if(a18){
+  a18.url='https://www.apple.com/v/macbook-neo/b/images/specs/a18pro_chip_icon__er6u867y9iye_large.png';
+  a18.source='https://www.apple.com/jp/macbook-neo/specs/';
+  a18.crop=null;
+}
+
 const baseHtml=ChipArt.html,baseDraw=ChipArt.draw;
 const esc=s=>String(s).replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]));
 
