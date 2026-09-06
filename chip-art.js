@@ -7,14 +7,14 @@ const catalog={};
 const add=(name,url,source,crop=null)=>{catalog[name]={url,source,crop};};
 
 add('M1','https://www.apple.com/newsroom/images/product/mac/standard/Apple_new-m1-chip-graphic_11102020_big.jpg.large.jpg','https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/');
-add('M1 Pro','https://www.apple.com/newsroom/images/product/mac/standard/Apple_MacBook-Pro_M1-Pro_10182021_big_carousel.jpg.large.jpg','https://www.apple.com/newsroom/2021/10/apple-unveils-game-changing-macbook-pro/');
-add('M1 Max','https://www.apple.com/newsroom/images/product/mac/standard/Apple_MacBook-Pro_M1-Max_10182021_big_carousel.jpg.large.jpg','https://www.apple.com/newsroom/2021/10/apple-unveils-game-changing-macbook-pro/');
+add('M1 Pro','https://www.apple.com/newsroom/images/product/mac/standard/Apple_M1-Pro-M1-Max_Chips_10182021_big.jpg.large.jpg','https://www.apple.com/newsroom/2021/10/introducing-m1-pro-and-m1-max-the-most-powerful-chips-apple-has-ever-built/',{x:.1235,y:.2595,w:.3602,h:.6407});
+add('M1 Max','https://www.apple.com/newsroom/images/product/mac/standard/Apple_M1-Pro-M1-Max_Chips_10182021_big.jpg.large.jpg','https://www.apple.com/newsroom/2021/10/introducing-m1-pro-and-m1-max-the-most-powerful-chips-apple-has-ever-built/',{x:.5153,y:.2595,w:.3602,h:.6407});
 add('M1 Ultra','https://www.apple.com/newsroom/images/product/mac/standard/Apple-M1-Ultra-hero-220308_big.jpg.large.jpg','https://www.apple.com/newsroom/2022/03/apple-unveils-m1-ultra-the-worlds-most-powerful-chip-for-a-personal-computer/');
 
 add('M2','https://www.apple.com/newsroom/images/live-action/wwdc-2022/Apple-WWDC22-M2-chip-hero-220606_big.jpg.large.jpg','https://www.apple.com/newsroom/2022/06/apple-unveils-m2-with-breakthrough-performance-and-capabilities/');
 add('M2 Pro','https://www.apple.com/newsroom/images/product/mac/standard/Apple-M2-chips-hero-230117_big.jpg.large.jpg','https://www.apple.com/newsroom/2023/01/apple-unveils-m2-pro-and-m2-max-next-generation-chips-for-next-level-workflows/',{x:.1143,y:.1706,w:.3704,h:.6588});
 add('M2 Max','https://www.apple.com/newsroom/images/product/mac/standard/Apple-M2-chips-hero-230117_big.jpg.large.jpg','https://www.apple.com/newsroom/2023/01/apple-unveils-m2-pro-and-m2-max-next-generation-chips-for-next-level-workflows/',{x:.5143,y:.1706,w:.3724,h:.6588});
-add('M2 Ultra','https://www.apple.com/newsroom/images/live-action/wwdc-2023/standard/m2/Apple-WWDC23-M2-Ultra-chip-230605_big.jpg.large.jpg','https://www.apple.com/newsroom/2023/06/apple-introduces-m2-ultra/');
+add('M2 Ultra','https://www.apple.com/newsroom/images/live-action/wwdc-2023/Apple-WWDC23-M2-Ultra-chip-230605_big.jpg.large.jpg','https://www.apple.com/newsroom/2023/06/apple-introduces-m2-ultra/');
 
 add('M3','https://www.apple.com/newsroom/images/2023/10/Apple-unveils-M3-M3-Pro-and-M3-Max/article/Apple-M3-chip-series-231030_big.jpg.large.jpg','https://www.apple.com/newsroom/2023/10/apple-unveils-m3-m3-pro-and-m3-max-the-most-advanced-chips-for-a-personal-computer/',{x:.0531,y:.2523,w:.2786,h:.4955});
 add('M3 Pro','https://www.apple.com/newsroom/images/2023/10/Apple-unveils-M3-M3-Pro-and-M3-Max/article/Apple-M3-chip-series-231030_big.jpg.large.jpg','https://www.apple.com/newsroom/2023/10/apple-unveils-m3-m3-pro-and-m3-max-the-most-advanced-chips-for-a-personal-computer/',{x:.3612,y:.2523,w:.2776,h:.4955});
@@ -35,7 +35,7 @@ add('A18 Pro','https://www.apple.com/v/iphone-16-pro/c/images/overview/highlight
 add('A19','https://images.apple.com/v/iphone-17/h/images/overview/contextual_compare/slides/chip/chip__cass6fbvu9iu_large.jpg','https://www.apple.com/iphone-17/');
 add('A19 Pro','https://www.apple.com/v/iphone/home/cj/images/overview/consider/chip__fh5j5on49p2e_large.jpg','https://www.apple.com/iphone/');
 
-const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const esc=s=>String(s).replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]));
 function baseName(name){const raw=String(name).trim();if(catalog[raw])return raw;const stripped=raw.replace(/\s+×\d+$/,'');return catalog[stripped]?stripped:raw;}
 function asset(name){return catalog[baseName(name)]||null;}
 function cropVars(c){return c?`--img-w:${100/c.w}%;--img-h:${100/c.h}%;--img-x:${-c.x/c.w*100}%;--img-y:${-c.y/c.h*100}%`:'';}
