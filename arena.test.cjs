@@ -6,9 +6,8 @@ setImmediate(()=>{vm.runInContext(`
 function check(x,msg){if(!x)throw Error(msg)}
 check(chips.length===27,'data count');
 check(enemyModels.a18.name==='A18 Pro'&&enemyModels.a19.name==='A19 Pro','enemy labels');
-check(enemyModels.a18.damage===2&&enemyModels.a19.damage===4,'fixed enemy damage');
 for(const k of ['single','multi','metal'])check(enemyModels.a19.ratios[k]>enemyModels.a18.ratios[k],'A19 stronger '+k);
-start();spawn();check(run.enemies[0].name==='A18 Pro'&&run.enemies[0].damage===2,'normal A18 enemy damage');run.t=20;for(let i=0;i<50;i++)spawn();check(run.enemies.some(e=>e.name==='A19 Pro'),'strong enemy');for(const e of run.enemies){check(Number.isFinite(e.damage)&&e.damage>0,'contact damage');if(e.name==='A18 Pro')check(e.damage===2,'A18 damage');if(e.name==='A19 Pro')check(e.damage===4,'A19 damage');}
+start();spawn();check(run.enemies[0].name==='A18 Pro'&&Math.abs(run.enemies[0].damage-12)<1e-9,'legacy A18 enemy damage');run.t=20;for(let i=0;i<50;i++)spawn();check(run.enemies.some(e=>e.name==='A19 Pro'),'strong enemy');for(const e of run.enemies){check(Number.isFinite(e.damage)&&e.damage>0,'contact damage');if(e.name==='A18 Pro')check(Math.abs(e.damage-12)<1e-9,'A18 legacy damage');if(e.name==='A19 Pro')check(Math.abs(e.damage-12*enemyModels.a19.ratios.metal)<1e-9,'A19 legacy Metal-scaled damage');}
 for(const c of chips){const s=spec(c);check(s.interval>0&&s.shots>=1&&s.shots<=6&&s.damage>0&&s.shield>=0,'stats')}
 start();check(state==='running','start');draw();
 const oldY=run.y;keys.add('arrowup');update(.03);check(run.y<oldY,'movement');keys.clear();
@@ -27,5 +26,5 @@ run.enemies.filter(e=>e.kind==='boss').forEach(e=>e.hp=0);update(.01);check(run.
 run.enemies=[];run.nextEndlessBossAt=run.t;update(.01);check(run.enemies.some(e=>e.kind==='boss'),'recurring endless boss');
 start();run.t=150;update(.01);check(state==='ended','pre-conquest time limit');home();check(state==='setup'&&run===null,'home');
 for(let test=0;test<3;test++){start();for(let i=0;i<5000&&state!=='ended';i++){if(state==='upgrade'){upgrades[i%upgrades.length].apply(run);resume();}run.invuln=2;pointer={sx:0,sy:0,x:Math.cos(i*.02)*42,y:Math.sin(i*.02)*42};update(.03);if(i%20===0)draw();check(Number.isFinite(run.hp)&&Number.isFinite(run.x),'finite state');}check(run.spawnedBosses>=3,'three initial bosses in long run');check(run.enemies.length<=66&&run.bullets.length<=240&&run.hostile.length<=240&&run.gems.length<=160,'entity caps');console.log('simulation',test,Math.floor(run.t)+'s',run.kills+' kills',run.level+' levels',state,run.conquered?'endless':'not-cleared',run.spawnedBosses+' bosses');}
-console.log('PASS: 27 chip stats, fixed A18/A19 damage, controls, upgrades, endless conquest, M-chip enemies, recurring bosses, timeout before conquest, long simulations');
+console.log('PASS: 27 chip stats, legacy A18/A19 damage scaling, controls, upgrades, endless conquest, M-chip enemies, recurring bosses, timeout before conquest, long simulations');
 `,sandbox)});
