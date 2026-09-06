@@ -9,11 +9,9 @@ const upgrades=[
 {id:'rate',name:'パイプライン',tag:'CPU',desc:'通常弾の発射間隔を15%短縮',apply:r=>r.interval=Math.max(.1,r.interval*.85)},
 {id:'shots',name:'GPUクラスター',tag:'GPU',desc:'同時発射数 +1。弾幕を厚くする',apply:r=>r.shots=Math.min(12,r.shots+1)},
 {id:'pierce',name:'貫通キャッシュ',tag:'GPU',desc:'弾がさらに1体の敵を貫通する',apply:r=>r.pierce++},
-{id:'orbit',name:'サテライト',tag:'GPU',desc:'自分の周囲を回る攻撃衛星 +1',apply:r=>r.orbits=Math.min(6,r.orbits+1)},
 {id:'cool',name:'放熱設計',tag:'THERMAL',desc:'熱の上昇を20%抑え、冷却を25%強化',apply:r=>{r.heatGain*=.8;r.cooling*=1.25;}},
 {id:'heal',name:'メモリ拡張',tag:'MEMORY',desc:'最大HP +20。HPも35回復する',apply:r=>{r.maxHp+=20;r.hp=Math.min(r.maxHp,r.hp+35);}},
 {id:'magnet',name:'広帯域バス',tag:'MEMORY',desc:'コア回収範囲 +65。経験値を集めやすく',apply:r=>r.magnet+=65},
-{id:'dash',name:'高速スケジューラ',tag:'CPU',desc:'移動速度 +12%。ダッシュ再使用を20%短縮',apply:r=>{r.speed*=1.12;r.dashMax*=.8;}},
 {id:'regen',name:'自己修復',tag:'MEMORY',desc:'毎秒HPを0.8回復する',apply:r=>r.regen+=.8}
 ];
 function spec(c){const b=baseline.bench,s=c.bench;return{interval:.52/(1+.75*Math.log2(Math.max(1,s.single/b.single))),damage:14*(1+.48*Math.log2(Math.max(1,s.multi/b.multi))),shots:Math.min(6,1+Math.floor(Math.log2(Math.max(1,s.metal/b.metal)))),shield:Math.min(60,Math.max(0,Math.round(12*Math.log2(Math.max(...c.memory)/16))))};}
@@ -28,7 +26,7 @@ function showDialog(label,title,text,choices){pointer=null;keys.clear();$('dialo
 function resume(){state='running';$('overlay').hidden=true;last=0;canvas.focus();}
 function pause(){if(state==='running'){state='paused';showDialog('PAUSED','一時停止','戦闘時間は止まっています。',[{name:'続ける',action:resume},{name:'構成を選び直す',tag:'EXIT',desc:'進行中のランを終了します',action:home}]);}else if(state==='paused')resume();}
 function home(){state='setup';run=null;pointer=null;keys.clear();$('play').hidden=true;$('setup').hidden=false;$('overlay').hidden=true;showBest();$('start').focus();}
-function levelUp(){run.xp-=run.need;run.level++;run.need=Math.round(7+run.level*3);state='upgrade';const pool=upgrades.filter(u=>!(u.id==='shots'&&run.shots>=12)&&!(u.id==='orbit'&&run.orbits>=6));for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}showDialog('CORE UPGRADE / LV.'+run.level,'次の強化を選ぶ','組み合わせで戦い方が変わる。',pool.slice(0,3).map(u=>({...u,action:()=>{u.apply(run);run.upgrades[u.id]=(run.upgrades[u.id]||0)+1;renderBuild();resume();if(run.xp>=run.need)levelUp();}})));}
+function levelUp(){run.xp-=run.need;run.level++;run.need=Math.round(7+run.level*3);state='upgrade';const pool=upgrades.filter(u=>!(u.id==='shots'&&run.shots>=12));for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}showDialog('CORE UPGRADE / LV.'+run.level,'次の強化を選ぶ','組み合わせで戦い方が変わる。',pool.slice(0,3).map(u=>({...u,action:()=>{u.apply(run);run.upgrades[u.id]=(run.upgrades[u.id]||0)+1;renderBuild();resume();if(run.xp>=run.need)levelUp();}})));}
 function renderBuild(){$('build').replaceChildren();for(const [id,count]of Object.entries(run.upgrades)){const el=document.createElement('span');el.textContent=upgrades.find(u=>u.id===id).name+' ×'+count;$('build').append(el);}}
 function end(win){state='ended';run.oc=false;run.score+=Math.floor(run.t)*10+(win?2000:0);let best=run.score;try{best=Math.max(Number(localStorage.getItem(bestKey()))||0,run.score);localStorage.setItem(bestKey(),String(best));}catch{}showDialog(win?'SYSTEM CLEAR':'SYSTEM HALTED',win?'アリーナ制圧。':'ラン終了。',`${run.chip.chip} · ${Math.floor(run.t)}秒 · ${run.kills}撃破 · ${run.score.toLocaleString()} pt / BEST ${best.toLocaleString()}`,[{name:'もう一度出撃',tag:'RETRY',desc:'同じチップで新しいビルドを試す',action:start},{name:'チップを変える',tag:'LOADOUT',desc:'別の世代・コア構成を試す',action:home}]);hud();}
 function conquer(){if(run.conquered)return;run.conquered=true;run.score+=2000;announce('ARENA SECURED / ENDLESS MODE');}
