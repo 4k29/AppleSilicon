@@ -69,6 +69,12 @@ start=function(){
   if(run)hud();
 };
 
+/* game.js registered the original start function before this extension loaded.
+   Replace that listener so tapping the actual UI button uses the configured memory. */
+const startButtonForConfig=document.getElementById('start');
+startButtonForConfig?.removeEventListener('click',arenaBaseStartForConfig);
+startButtonForConfig?.addEventListener('click',start);
+
 const arenaBaseBestKeyForConfig=bestKey;
 bestKey=function(){return `${arenaBaseBestKeyForConfig()}-mem${run?.selectedMemory||arenaSelectedMemory()}`;};
 
