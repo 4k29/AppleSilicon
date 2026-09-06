@@ -27,9 +27,6 @@ function syncArenaMemoryOptions(){
   selectEl.disabled=options.length<=1;
 }
 
-/* The chosen memory must exist before the base start() builds run/spec/HUD.
-   Keep it on globalThis during that short window so every extension reads the
-   exact same capacity from the first frame. */
 globalThis.arenaPendingMemory=0;
 const arenaBaseSpecForConfig=spec;
 spec=function(c){
@@ -72,13 +69,13 @@ start=function(){
 /* game.js registered the original start function before this extension loaded.
    Replace that listener so tapping the actual UI button uses the configured memory. */
 const startButtonForConfig=document.getElementById('start');
-startButtonForConfig?.removeEventListener('click',arenaBaseStartForConfig);
-startButtonForConfig?.addEventListener('click',start);
+startButtonForConfig?.removeEventListener?.('click',arenaBaseStartForConfig);
+startButtonForConfig?.addEventListener?.('click',start);
 
 const arenaBaseBestKeyForConfig=bestKey;
 bestKey=function(){return `${arenaBaseBestKeyForConfig()}-mem${run?.selectedMemory||arenaSelectedMemory()}`;};
 
 const chipSelectForConfig=document.getElementById('chip');
 const memorySelectForConfig=document.getElementById('memoryConfig');
-chipSelectForConfig?.addEventListener('change',()=>preview());
-memorySelectForConfig?.addEventListener('change',()=>{preview();showBest();});
+chipSelectForConfig?.addEventListener?.('change',()=>preview());
+memorySelectForConfig?.addEventListener?.('change',()=>{preview();showBest();});
