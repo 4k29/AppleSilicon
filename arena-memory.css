@@ -1,1 +1,0 @@
-.meters{grid-template-columns:repeat(4,1fr)}#memory::-webkit-progress-value{background:#87b8ff}#memory::-moz-progress-bar{background:#87b8ff}#memoryText[data-pressure="medium"]{color:#f0c878}#memoryText[data-pressure="high"]{color:#ff9398}@media(max-width:650px){.meters{grid-template-columns:repeat(2,1fr);gap:10px 14px}}
