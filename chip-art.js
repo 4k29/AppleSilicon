@@ -33,7 +33,7 @@ add('M5 Max','https://www.apple.com/newsroom/images/2026/03/apple-debuts-m5-pro-
 add('M6','https://www.apple.com/newsroom/images/2026/08/apple-introduces-m6-and-m5-ultra-for-a-big-leap-in-performance-and-ai-compute/article/Apple-M6-and-M5-Ultra-hero-260825_big.jpg.large.jpg','https://www.apple.com/newsroom/2026/08/apple-introduces-m6-and-m5-ultra-for-a-big-leap-in-performance-and-ai-compute/',{x:.10,y:.16,w:.38,h:.68});
 add('M5 Ultra','https://www.apple.com/newsroom/images/2026/08/apple-introduces-m6-and-m5-ultra-for-a-big-leap-in-performance-and-ai-compute/article/Apple-M6-and-M5-Ultra-hero-260825_big.jpg.large.jpg','https://www.apple.com/newsroom/2026/08/apple-introduces-m6-and-m5-ultra-for-a-big-leap-in-performance-and-ai-compute/',{x:.52,y:.16,w:.38,h:.68});
 
-add('A18 Pro','https://www.apple.com/v/iphone-16-pro/c/images/overview/highlights/chip_endframe__d9ww29ytvb0i_large_2x.jpg','https://www.apple.com/jp/newsroom/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/');
+add('A18 Pro','https://www.apple.com/v/macbook-neo/b/images/specs/a18pro_chip_icon__er6u867y9iye_large.png','https://www.apple.com/jp/macbook-neo/specs/');
 add('A19','https://images.apple.com/v/iphone-17/h/images/overview/contextual_compare/slides/chip/chip__cass6fbvu9iu_large.jpg','https://www.apple.com/iphone-17/');
 add('A19 Pro','https://www.apple.com/v/iphone/home/cj/images/overview/consider/chip__fh5j5on49p2e_large.jpg','https://www.apple.com/iphone/');
 
