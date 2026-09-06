@@ -7,8 +7,10 @@ const catalog={};
 const add=(name,url,source,crop=null)=>{catalog[name]={url,source,crop};};
 
 add('M1','https://www.apple.com/newsroom/images/product/mac/standard/Apple_new-m1-chip-graphic_11102020_big.jpg.large.jpg','https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/');
-add('M1 Pro','https://www.apple.com/newsroom/images/product/mac/standard/Apple_M1-Pro-M1-Max_Chips_10182021_big.jpg.large.jpg','https://www.apple.com/newsroom/2021/10/introducing-m1-pro-and-m1-max-the-most-powerful-chips-apple-has-ever-built/',{x:.1235,y:.2595,w:.3602,h:.6407});
-add('M1 Max','https://www.apple.com/newsroom/images/product/mac/standard/Apple_M1-Pro-M1-Max_Chips_10182021_big.jpg.large.jpg','https://www.apple.com/newsroom/2021/10/introducing-m1-pro-and-m1-max-the-most-powerful-chips-apple-has-ever-built/',{x:.5153,y:.2595,w:.3602,h:.6407});
+// Apple’s official M1 Pro / M1 Max hero contains the two finished black chip packages side by side.
+// Crop the package itself (not the enlarged die shots used elsewhere in the Newsroom article).
+add('M1 Pro','https://www.apple.com/newsroom/images/product/mac/standard/Apple_M1-Pro-M1-Max_Chips_10182021_big.jpg.large.jpg','https://www.apple.com/newsroom/2021/10/introducing-m1-pro-and-m1-max-the-most-powerful-chips-apple-has-ever-built/',{x:.124,y:.224,w:.359,h:.552});
+add('M1 Max','https://www.apple.com/newsroom/images/product/mac/standard/Apple_M1-Pro-M1-Max_Chips_10182021_big.jpg.large.jpg','https://www.apple.com/newsroom/2021/10/introducing-m1-pro-and-m1-max-the-most-powerful-chips-apple-has-ever-built/',{x:.516,y:.224,w:.359,h:.552});
 add('M1 Ultra','https://www.apple.com/newsroom/images/product/mac/standard/Apple-M1-Ultra-hero-220308_big.jpg.large.jpg','https://www.apple.com/newsroom/2022/03/apple-unveils-m1-ultra-the-worlds-most-powerful-chip-for-a-personal-computer/');
 
 add('M2','https://www.apple.com/newsroom/images/live-action/wwdc-2022/Apple-WWDC22-M2-chip-hero-220606_big.jpg.large.jpg','https://www.apple.com/newsroom/2022/06/apple-unveils-m2-with-breakthrough-performance-and-capabilities/');
