@@ -66,6 +66,39 @@ spawn=function(boss=false){
   return result;
 };
 
+/* Bosses now drop a visible shower of COREs. The first three award 30/35/40
+   CORE total, then endless bosses continue scaling by +5 up to 60 CORE. */
+const arenaBaseKill=kill;
+kill=function(e){
+  const isBoss=e?.kind==='boss';
+  const bossIndex=isBoss?(run?.bosses||0):0;
+  const gemStart=run?.gems?.length||0;
+  arenaBaseKill(e);
+  if(!isBoss||!run)return;
+  const total=Math.min(60,30+bossIndex*5);
+  const pieces=5,base=Math.floor(total/pieces),remainder=total%pieces;
+  const first=run.gems[gemStart];
+  if(first){
+    first.value=base+(remainder>0?1:0);
+    first.x=e.x-14;
+    first.y=e.y;
+  }
+  for(let i=1;i<pieces;i++){
+    const angle=(i/pieces)*Math.PI*2;
+    run.gems.push({
+      x:e.x+Math.cos(angle)*18,
+      y:e.y+Math.sin(angle)*18,
+      value:base+(i<remainder?1:0)
+    });
+  }
+  while(run.gems.length>160){
+    const oldest=run.gems.shift();
+    if(run.gems[0])run.gems[0].value+=oldest.value;
+  }
+  /* Keep the conquest banner on boss #3; otherwise show the larger reward. */
+  if(bossIndex!==2)announce(`BOSS DOWN / +${total} CORE`);
+};
+
 const arenaBaseConquer=conquer;
 conquer=function(){
   const already=run?.conquered;
