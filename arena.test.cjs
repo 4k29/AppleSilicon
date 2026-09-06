@@ -6,7 +6,9 @@ setImmediate(()=>{vm.runInContext(`
 function check(x,msg){if(!x)throw Error(msg)}
 check(chips.length===27,'data count');
 check(enemyModels.a18.name==='A18 Pro'&&enemyModels.a19.name==='A19 Pro','enemy labels');
-check(ChipArt.html('A18 Pro').includes('a18-pro-contain'),'A18 Pro artwork uses contain instead of cover crop');
+check(ChipArt.asset('A18 Pro').url.includes('a18pro_chip_icon'),'A18 Pro uses Apple official chip icon');
+check(ChipArt.html('A18 Pro').includes('a18-pro-contain'),'A18 Pro artwork uses dedicated contain rendering');
+check(!upgrades.some(u=>u.id==='orbit'||u.id==='dash'),'satellite and fast scheduler removed from upgrades');
 for(const k of ['single','multi','metal'])check(enemyModels.a19.ratios[k]>enemyModels.a18.ratios[k],'A19 stronger '+k);
 const realMemory=arenaMemoryOptions(selected());check(realMemory.length>0,'real memory options');check($('memoryConfig').children.length===realMemory.length,'memory selector populated');check(realMemory.every(v=>selected().memory.includes(v)),'memory options come from chip data');
 $('memoryConfig').value=String(realMemory[0]);preview();const expectedShield=Math.min(60,Math.max(0,Math.round(12*Math.log2(Math.max(1,realMemory[0])/16))));check(spec(selected()).shield===expectedShield,'selected memory affects shield');
@@ -15,14 +17,14 @@ start();run.gems=[];kill({kind:'normal',name:'A18 Pro',x:100,y:100});const a18Co
 start();spawn();check(run.enemies[0].name==='A18 Pro'&&Math.abs(run.enemies[0].damage-12)<1e-9,'legacy A18 enemy damage');run.t=20;for(let i=0;i<50;i++)spawn();check(run.enemies.some(e=>e.name==='A19 Pro'),'strong enemy');for(const e of run.enemies){check(Number.isFinite(e.damage)&&e.damage>0,'contact damage');if(e.name==='A18 Pro')check(Math.abs(e.damage-12)<1e-9,'A18 legacy damage');if(e.name==='A19 Pro')check(Math.abs(e.damage-12*enemyModels.a19.ratios.metal)<1e-9,'A19 legacy Metal-scaled damage');}
 for(const c of chips){const s=spec(c);check(s.interval>0&&s.shots>=1&&s.shots<=6&&s.damage>0&&s.shield>=0,'stats')}
 start();check(state==='running','start');draw();
-const memCap=arenaMemoryCapacity(run),memBase=arenaMemoryUsage(run);check(memCap===realMemory[0],'memory capacity follows selected configuration');check(memBase>0&&memBase<memCap,'base memory usage');run.enemies.push({kind:'boss'},{kind:'mchip'},{kind:'normal'});run.bullets.push({},{},{});run.orbits=2;const memLoaded=arenaMemoryUsage(run);check(memLoaded>memBase&&memLoaded<memCap,'memory rises with workload');hud();check(Number($('memory').max)===memCap&&$('memory').value>0,'memory HUD meter');check($('memoryText').textContent.includes('/ '+memCap+' GB'),'memory HUD text');run.enemies=[];run.bullets=[];run.orbits=0;
+const memCap=arenaMemoryCapacity(run),memBase=arenaMemoryUsage(run);check(memCap===realMemory[0],'memory capacity follows selected configuration');check(memBase>0&&memBase<memCap,'base memory usage');run.enemies.push({kind:'boss'},{kind:'mchip'},{kind:'normal'});run.bullets.push({},{},{});run.upgrades.damage=2;const memLoaded=arenaMemoryUsage(run);check(memLoaded>memBase&&memLoaded<memCap,'memory rises with workload');hud();check(Number($('memory').max)===memCap&&$('memory').value>0,'memory HUD meter');check($('memoryText').textContent.includes('/ '+memCap+' GB'),'memory HUD text');run.enemies=[];run.bullets=[];run.upgrades={};
 const oldY=run.y;keys.add('arrowup');update(.03);check(run.y<oldY,'movement');keys.clear();
 pointer={sx:0,sy:0,x:42,y:0};const oldX=run.x;update(.03);check(run.x>oldX,'touch move');pointer=null;
 dash();check(run.dashCd>0&&run.invuln>0,'dash');const cooldown=run.dashCd;dash();check(run.dashCd===cooldown,'dash gate');
 oc();check(run.oc,'OC on');for(let i=0;i<120;i++)update(.03);check(run.locked&&!run.oc,'thermal limit');for(let i=0;i<125;i++){run.invuln=10;update(.03)}check(!run.locked,'cooldown');
 pause();check(state==='paused','pause');resume();check(state==='running','resume');
 run.xp=run.need;levelUp();check(state==='upgrade'&&$('choices').children.length===3,'upgrade');resume();
-for(const u of upgrades)u.apply(run);check(run.orbits===1&&run.pierce===1,'upgrades apply');draw();
+for(const u of upgrades)u.apply(run);check(run.orbits===0&&run.pierce===1,'upgrades apply without satellite');draw();
 start();run.enemies=[];spawn(true);check(run.enemies[0].kind==='boss','boss spawn');const firstBossName=run.enemies[0].name;run.enemies[0].hp=0;update(.01);const bossCoreTotal=run.gems.reduce((s,g)=>s+g.value,0);check(run.bosses===1&&bossCoreTotal>30,'boss reward scales above base total');check(run.gems.every(g=>g.sourceChip===firstBossName&&g.coreColor&&g.coreSize>=6),'boss COREs carry strength visuals');
 start();run.hp=0;update(.01);check(state==='ended','loss');
 start();run.bosses=2;run.spawnedBosses=2;spawn(true);const scoreBefore=run.score;run.enemies[0].hp=0;update(.01);check(state==='running'&&run.conquered,'continue after conquest');check(run.score===scoreBefore+2600,'boss plus conquest score');const conquestScore=run.score;run.invuln=10;update(.01);check(run.score===conquestScore,'conquest bonus once');run.t=150;run.invuln=10;update(.01);check(state==='running','time limit removed after conquest');check($('wave').textContent.startsWith('ENDLESS'),'endless HUD');
@@ -32,5 +34,5 @@ run.enemies.filter(e=>e.kind==='boss').forEach(e=>e.hp=0);update(.01);check(run.
 run.enemies=[];run.nextEndlessBossAt=run.t;update(.01);check(run.enemies.some(e=>e.kind==='boss'),'recurring endless boss');
 start();run.t=150;update(.01);check(state==='ended','pre-conquest time limit');home();check(state==='setup'&&run===null,'home');
 for(let test=0;test<3;test++){start();for(let i=0;i<5000&&state!=='ended';i++){if(state==='upgrade'){upgrades[i%upgrades.length].apply(run);resume();}run.invuln=2;pointer={sx:0,sy:0,x:Math.cos(i*.02)*42,y:Math.sin(i*.02)*42};update(.03);if(i%20===0)draw();check(Number.isFinite(run.hp)&&Number.isFinite(run.x),'finite state');check(Number.isFinite(arenaMemoryUsage(run)),'finite memory usage');}check(run.spawnedBosses>=3,'three initial bosses in long run');check(run.enemies.length<=66&&run.bullets.length<=240&&run.hostile.length<=240&&run.gems.length<=160,'entity caps');console.log('simulation',test,Math.floor(run.t)+'s',run.kills+' kills',run.level+' levels',state,run.conquered?'endless':'not-cleared',run.spawnedBosses+' bosses');}
-console.log('PASS: A18 Pro artwork, strength-scaled CORE value/size/color, real memory configurations, legacy A18/A19 damage scaling, live memory telemetry, controls, upgrades, endless conquest, recurring bosses');
+console.log('PASS: visible A18 Pro official artwork, no satellite/fast-scheduler upgrades, strength-scaled CORE, real memory configurations, endless conquest');
 `,sandbox)});
