@@ -1,12 +1,16 @@
 'use strict';
 /* Live memory-load simulation for Silicon Arena.
-   Capacity uses the real memory configuration selected in the loadout.
+   Capacity uses the exact real memory configuration selected in the loadout.
    Usage is game telemetry, not measured real-world unified-memory usage. */
 function arenaMemoryCapacity(r){
-  const selectedCapacity=Number(r?.memoryCapacity||r?.memoryConfiguration);
+  const selectedCapacity=Number(r?.selectedMemory||r?.memoryConfiguration||r?.memoryCapacity);
   if(Number.isFinite(selectedCapacity)&&selectedCapacity>0)return selectedCapacity;
-  const values=Array.isArray(r?.chip?.memory)?r.chip.memory.map(Number).filter(Number.isFinite):[];
-  return values.length?Math.max(...values):8;
+  const pending=Number(globalThis.arenaPendingMemory);
+  if(Number.isFinite(pending)&&pending>0)return pending;
+  const options=typeof arenaMemoryOptions==='function'?arenaMemoryOptions(r?.chip):[];
+  const selected=Number(document.getElementById('memoryConfig')?.value);
+  if(options.includes(selected))return selected;
+  return options.at(-1)||8;
 }
 function arenaMemoryUsage(r){
   if(!r)return 0;
@@ -15,7 +19,9 @@ function arenaMemoryUsage(r){
   const mchips=r.enemies.filter(e=>e.kind==='mchip').length;
   const normal=Math.max(0,r.enemies.length-bosses-mchips);
   const upgradeCount=Object.values(r.upgrades||{}).reduce((sum,n)=>sum+(Number(n)||0),0);
-  const base=Math.min(6,Math.max(1.35,capacity*.18));
+  /* Same arena workload should consume roughly the same amount regardless of
+     how much RAM the selected configuration has; larger capacities show more headroom. */
+  const base=1.8;
   const workload=
     normal*.045+
     mchips*.12+
