@@ -1,7 +1,8 @@
 'use strict';
 /* Endless-mode extension for Silicon Arena.
    Keeps the first three bosses intact, then adds recurring M-chip bosses and
-   mixes M-series enemies into the normal waves after the arena is secured. */
+   mixes M-series enemies into the normal waves after the arena is secured.
+   It also restores the Arena's original A18/A19 contact-damage scaling. */
 const ENDLESS_BOSS_INTERVAL=45;
 const ENDLESS_M_CHIPS=['M1','M1 Pro','M1 Max','M2','M2 Pro','M2 Max','M2 Ultra','M3','M3 Pro','M3 Max','M3 Ultra','M4','M4 Pro','M4 Max','M5','M5 Pro','M5 Max'];
 const ENDLESS_BOSSES=['M4 Max','M5 Max','M5 Ultra','M6','M1 Ultra','M2 Ultra','M3 Ultra'];
@@ -46,6 +47,11 @@ function spawnEndlessBoss(){
   announce(name+' / ENDLESS BOSS');
   return true;
 }
+function restoreLegacyContactDamage(enemy){
+  if(!enemy)return;
+  const model=enemy.name==='A18 Pro'?enemyModels.a18:enemy.name==='A19 Pro'?enemyModels.a19:null;
+  if(model?.ratios)enemy.damage=12*model.ratios.metal;
+}
 
 const arenaBaseSpawn=spawn;
 spawn=function(boss=false){
@@ -54,7 +60,10 @@ spawn=function(boss=false){
     const forceFirst=(run.endlessMSpawned||0)===0;
     if(forceFirst||Math.random()<.38){if(spawnEndlessM())return;}
   }
-  return arenaBaseSpawn(boss);
+  const before=run?.enemies.length||0;
+  const result=arenaBaseSpawn(boss);
+  if(!boss&&run&&run.enemies.length>before)restoreLegacyContactDamage(run.enemies[run.enemies.length-1]);
+  return result;
 };
 
 const arenaBaseConquer=conquer;
