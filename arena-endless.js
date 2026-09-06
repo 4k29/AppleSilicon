@@ -66,8 +66,8 @@ spawn=function(boss=false){
   return result;
 };
 
-/* Bosses now drop a visible shower of COREs. The first three award 30/35/40
-   CORE total, then endless bosses continue scaling by +5 up to 60 CORE. */
+/* Bosses keep their original 15-CORE primary drop, plus four bonus COREs.
+   Total reward: 30/35/40 for the first three, then +5 per endless boss up to 60. */
 const arenaBaseKill=kill;
 kill=function(e){
   const isBoss=e?.kind==='boss';
@@ -76,18 +76,18 @@ kill=function(e){
   arenaBaseKill(e);
   if(!isBoss||!run)return;
   const total=Math.min(60,30+bossIndex*5);
-  const pieces=5,base=Math.floor(total/pieces),remainder=total%pieces;
-  const first=run.gems[gemStart];
-  if(first){
-    first.value=base+(remainder>0?1:0);
-    first.x=e.x-14;
-    first.y=e.y;
+  const primary=run.gems[gemStart];
+  if(primary){
+    primary.value=15;
+    primary.x=e.x-14;
+    primary.y=e.y;
   }
-  for(let i=1;i<pieces;i++){
-    const angle=(i/pieces)*Math.PI*2;
+  const bonusTotal=total-15,bonusPieces=4,base=Math.floor(bonusTotal/bonusPieces),remainder=bonusTotal%bonusPieces;
+  for(let i=0;i<bonusPieces;i++){
+    const angle=(i/bonusPieces)*Math.PI*2;
     run.gems.push({
-      x:e.x+Math.cos(angle)*18,
-      y:e.y+Math.sin(angle)*18,
+      x:e.x+Math.cos(angle)*20,
+      y:e.y+Math.sin(angle)*20,
       value:base+(i<remainder?1:0)
     });
   }
